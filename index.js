@@ -12,7 +12,8 @@ const   User                = require("./models/user"),
         LocalStrategy       = require("passport-local");
 
 // Route dependencies
-const   indexRoutes         = require("./routes/index");
+const   indexRoutes         = require("./routes/index"),
+        nawRoutes           = require("./routes/naw");
 
 // dotENV
 require('dotenv').config();
@@ -66,7 +67,8 @@ app.use((req,res,next)=>{
 });
 
 // Routes
-app.use(indexRoutes);
+app.use(indexRoutes),
+app.use("/naw", nawRoutes);
 
 // Listener
 app.listen(appPort, appIP, ()=>console.log("InmetingTool \nStarted on: " + appIP + "\n      port: " + appPort ));
