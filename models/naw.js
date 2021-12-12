@@ -11,9 +11,9 @@ const NAWSchema = new mongoose.Schema({
     woonplaats: String,
     huistelefoon: String,
     mobiel01: String,
-    mobiel01Omschrijving: String,
+    mobiel01omschrijving: String,
     mobiel02: String,
-    mobiel02Omschrijving: String,
+    mobiel02omschrijving: String,
     description: String
 });
 

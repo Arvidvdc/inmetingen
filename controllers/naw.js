@@ -4,6 +4,7 @@ const NAW   = require("../models/naw");
 // Moment module
 let moment = require("moment"); //code voor opmaak datum
 const { utc, now } = require("moment");
+const { redirect } = require("express/lib/response");
 
 // NAW Index route
 exports.index = (req,res) => {
@@ -27,11 +28,11 @@ exports.new_post = (req,res) => {
         woonplaats              = req.body.woonplaats,
         huistelefoon            = req.body.telefoonnummer,
         mobiel01                = req.body.mobiel01,
-        mobiel01Omschrijving    = req.body.mobiel01Omschrijving,
+        mobiel01omschrijving    = req.body.mobiel01omschrijving,
         mobiel02                = req.body.mobiel02,
-        mobiel02Omschrijving    = req.body.mobiel02Omschrijving,
+        mobiel02omschrijving    = req.body.mobiel02omschrijving,
         description             = req.body.description,
-        newNAW                  = {aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01Omschrijving: mobiel01Omschrijving, mobiel02: mobiel02, mobiel02Omschrijving: mobiel02Omschrijving, description: description};
+        newNAW                  = {aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01omschrijving: mobiel01omschrijving, mobiel02: mobiel02, mobiel02omschrijving: mobiel02omschrijving, description: description};
     NAW.create(newNAW, (err,naw) => {
         if(err){
             console.log("Create NAW: Something went wrong. \n" + err);
@@ -46,3 +47,13 @@ exports.new = (req,res) => {
     res.render("./naw/new", {moment: moment, page: "nawNew"});
 }
 
+// NAW Show
+exports.show = (req,res) => {
+    NAW.findById(req.params.id, (err, foundNAW) => {
+        if(err) {
+            redirect("back");
+        } else {
+            res.render("./naw/show", {moment: moment, foundNAW: foundNAW, page: "nawShow"});
+        }
+    })
+}

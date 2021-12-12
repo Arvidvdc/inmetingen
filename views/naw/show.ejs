@@ -1,0 +1,47 @@
+<%- include("../partials/header") -%>
+
+<div class="container">
+    <div class="center">
+        <div class="row"><h3><%= foundNAW.achternaam %> </h3></div>
+        <div class="gallery">
+            <div class="row">
+                <div class="col-2">Naam: </div>
+                <div class="col-2">
+                    <%= foundNAW.aanhef %> <%= foundNAW.voornaam %> <%= foundNAW.tussenvoegsels %> <%= foundNAW.achternaam %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">Adres: </div>
+                <div class="col-2">
+                    <%= foundNAW.adres %> <%= foundNAW.woonplaats %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">Huistelefoon: </div>
+                <div class="col-2">
+                    <%= foundNAW.huistelefoon %> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">Mobiel: </div>
+                <div class="col-2">
+                    <%= foundNAW.mobiel01omschrijving %> <%= foundNAW.mobiel01 %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">Mobiel: </div>
+                <div class="col-2">
+                    <%= foundNAW.mobiel02omschrijving %> <%= foundNAW.mobiel02 %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">Opmerkingen: </div>
+                <div class="col-2">
+                    <%= foundNAW.description %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") -%>
