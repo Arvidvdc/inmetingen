@@ -4,7 +4,7 @@ const   express             = require("express"),
         naw_controller      = require("../controllers/naw");
 
 // Show route
-router.get("/", naw_controller.show);
+router.get("/", naw_controller.index);
 
 // Create route
 router.post("/new", naw_controller.new_post);

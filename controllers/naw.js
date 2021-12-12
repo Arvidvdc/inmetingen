@@ -5,13 +5,13 @@ const NAW   = require("../models/naw");
 let moment = require("moment"); //code voor opmaak datum
 const { utc, now } = require("moment");
 
-// NAW show
-exports.show = (req,res) => {
+// NAW Index route
+exports.index = (req,res) => {
     NAW.find({}, (err, foundNAW) => {
         if(err){
             console.log("Something went wrong");
         } else {
-            res.render("./naw/show", {foundNAW: foundNAW, page: "nawOverzicht"});
+            res.render("./naw/index", {foundNAW: foundNAW, page: "nawIndex"});
         };
     });
 }
@@ -34,7 +34,7 @@ exports.new_post = (req,res) => {
         newNAW                  = {aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01Omschrijving: mobiel01Omschrijving, mobiel02: mobiel02, mobiel02Omschrijving: mobiel02Omschrijving, description: description};
     NAW.create(newNAW, (err,naw) => {
         if(err){
-            console.log("Create NAW: Something went wrong.");
+            console.log("Create NAW: Something went wrong. \n" + err);
         } else {
             res.redirect("/naw");
         };

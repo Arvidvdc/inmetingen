@@ -1,0 +1,17 @@
+<%- include("../partials/header") -%>
+
+    <div class="container">
+        <div class="center">
+            <div class="row"><h3>KLANTENOVERZICHT</h3></div>
+
+                <% foundNAW.forEach(name => { %>
+                    <div class="row">
+                        <a href="/naw/<%= name._id %>"><%= name.achternaam %> - <%= name.woonplaats %></a>
+                    </div>
+                <% }); %>
+
+        </div>
+    </div>
+
+
+<%- include("../partials/footer") -%>

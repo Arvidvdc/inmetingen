@@ -53,7 +53,7 @@ div.gallery:hover {
 }
 
 /* Forms */
-input[type=text], select, textarea {
+input[type=text], input[type=tel], select, textarea {
     width: 95%;
     padding: 10px 5px;
     border: 1px solid #ffffff;
