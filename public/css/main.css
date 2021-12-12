@@ -3,3 +3,120 @@ body {
     color: #ffff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.center {
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+}
+
+.center h3 {
+    margin-left: 14px;
+    margin-bottom: 5px;
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+    margin: 5px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+    text-overflow: clip;
+    padding: 7px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+.clip {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.clip a {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hid {
+    visibility: visible;
+    display: block;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 5px 0px;
+}
+
+/* Forms */
+input[type=text], select, textarea {
+    width: 95%;
+    padding: 10px 5px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit], input[type=reset], input[type=button] {
+    background-color: #00427D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+    width: 98%;
+    transition: background-color .3s;
+}
+
+input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover {
+    color: #000000;
+    font-weight: bold;
+    background-color: var(--main-highlite-color3);
+}
+
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+@media screen and (max-width: 1500px) {
+
+}
+
+@media screen and (max-width: 975px) {
+    .hid {
+        visibility: hidden;
+        display: none;
+    }
+    .center {
+        margin: auto;
+        width: 100%;
+        padding: 0px;
+    }
+}
+
+.clearfix:after, .row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
