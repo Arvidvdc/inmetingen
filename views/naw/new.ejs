@@ -6,6 +6,12 @@
         <div class="gallery">
             <form action="/naw/new" method="POST" name="">
                 <div class="row">
+                    <div class="col-6"><label for="klantnummer">Klantnummer</label></div>
+                    <div class="col-6">
+                        <input type="number" id="klantnummer" name="klantnummer">
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-6"><label for"aanhef">Aanhef</label></div>
                     <div class="col-6">
                         <select id="aanhef" name="aanhef" required autofocus>
@@ -42,7 +48,7 @@
                 <div class="row">
                     <div class="col-6"><label for="postcode">Postcode / Woonplaats</label></div>
                     <div class="col-2">
-                        <input type="text" id="postcode" name="postcode" style="width: 75%;">
+                        <input type="text" id="postcode" name="postcode" style="width: 75%;" placeholder="9672 BL">
                     </div>
                     <div class="col-4">
                         <input type="text" id="woonplaats" name="woonplaats" style="width: 93%;">
@@ -57,13 +63,13 @@
                 <div class="row">
                     <div class="col-6"><label for="mobiel01">Mobiel 01</label></div>
                     <div class="col-6">
-                        <input type="tel" id="mobiel01" name="mobiel01">
+                        <input type="tel" id="mobiel01" name="mobiel01" placeholder="06-12345678">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6"><label for="mobiel01omschrijving">Mobiel 01 omschrijving</label></div>
                     <div class="col-6">
-                        <input type="text" id="mobiel01omschrijving" name="mobiel01omschrijving">
+                        <input type="text" id="mobiel01omschrijving" name="mobiel01omschrijving" placeholder="06-12345678">
                     </div>
                 </div>
                 <div class="row">
@@ -79,14 +85,23 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6"><label for="description">Opmerkingen</label></div>
+                    <div class="col-6"><label for="email">Email</label></div>
                     <div class="col-6">
-                        <textarea type="text" id="description" name="description"></textarea>
+                        <input type="email" id="email" name="email">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6"><label for="omschrijving">Opmerkingen</label></div>
+                    <div class="col-6">
+                        <textarea type="text" id="omschrijving" name="omschrijving"></textarea>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6"><input type="reset" value="Herstellen"></div>
-                    <div class="col-6"><input type="submit" value="Toevoegen"></div>
+                    <div class="col-6"></div>
+                    <div class="col-2"><input class="but but-deep-brown" type="reset" value="Herstellen"></div>
+                    <div class="col-2"></div>
+                    <div class="col-2"><input class="but but-deep-brown" type="submit" value="Toevoegen"></div>
                 </div>
             </form>
         </div>

@@ -4,12 +4,6 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.center {
-    margin: auto;
-    width: 75%;
-    padding: 10px;
-}
-
 .center h3 {
     margin-left: 14px;
     margin-bottom: 5px;
@@ -42,10 +36,6 @@ div.gallery:hover {
     text-overflow: ellipsis;
 }
 
-.hid {
-    visibility: visible;
-    display: block;
-}
 
 [class*="col-"] {
     float: left;
@@ -53,7 +43,7 @@ div.gallery:hover {
 }
 
 /* Forms */
-input[type=text], input[type=tel], select, textarea {
+input[type=text], input[type=email], input[type=tel], input[type=number], select, textarea {
     width: 95%;
     padding: 10px 5px;
     border: 1px solid #ffffff;
@@ -66,52 +56,159 @@ label {
     display: inline-block;
 }
 
-input[type=submit], input[type=reset], input[type=button] {
+/* button {
     background-color: #00427D;
-    color: white;
-    padding: 12px 20px;
+    color: #ffffff;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: left;
-    width: 98%;
-    transition: background-color .3s;
 }
 
-input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover {
-    color: #000000;
+button:hover {
+    color: #ffffff;
     font-weight: bold;
-    background-color: var(--main-highlite-color3);
+    background-color: #C60F1E;
+} */
+
+.but {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    min-width: 120px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 12px;
+    transition: color .15s ease-in-out,
+        background-color .15s ease-in-out,
+        border-color .15s ease-in-out,
+        text-trasform .15s ease-in-out,
+        box-shadow .15s ease-in-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* For desktop: */
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
-
-
-@media screen and (max-width: 1500px) {
+.but:hover:not(.disabled) {
+    color: #212529;
+    box-shadow: 0 0 0 0.2rem #52585d80;
 
 }
 
-@media screen and (max-width: 975px) {
+.but-oker {
+    color: #006400;
+	background-color: #ddba3f;
+    border-color: #ddba3f;
+    font-weight: bold;
+}
+
+.but-oker:hover {
+    color: #fff;
+    background-color: #8b762a;
+    border-color: #927a23;
+}
+
+.but-oker:focus {
+    color: #fff;
+    background-color: #bb9f3b;
+    border-color: #cba931;
+}
+
+.but-oker:active {
+    color: #006400;
+    background-color: #ddba3f;
+    border-color: #ddba3f;
+}
+
+.but-deep-brown{
+    color: #ffd700;
+	background-color: #522900;
+    border-color: #522900;
+}
+
+.but-deep-brown:hover {
+    color: #c0c0c0;
+    background-color: #422100;
+    border-color: #4a2908;
+}
+
+.but-deep-brown:focus {
+    color: #c0c0c0;
+    background-color: #422100;
+    border-color: #4a2908;
+}
+
+.but-deep-brown:active {
+    color: #ffd700;
+    background-color: #422100;
+    border-color: #4a2908;
+}
+.disabled {
+    color: #000000;
+    background-color: #7e7e7e;
+    border-color: #4a2908;
+    font-weight: bold;
+    box-shadow: 0px;
+    /* disable link */
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+}
+
+/* for mobile */
+[class*="col-"] {width: 100%;}
+
+.hid {
+    visibility: hidden;
+    display: none;
+}
+.center {
+    margin: auto;
+    width: 100%;
+    padding: 0px;
+}
+
+.buttonRow {
+    text-align: center;
+}
+
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+
     .hid {
-        visibility: hidden;
-        display: none;
+        visibility: visible;
+        display: block;
     }
+
+    .buttonRow {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
     .center {
         margin: auto;
-        width: 100%;
-        padding: 0px;
+        width: 75%;
+        padding: 10px;
     }
 }
 

@@ -19,7 +19,8 @@ exports.index = (req,res) => {
 
 // NAW Create
 exports.new_post = (req,res) => {
-    let aanhef                  = req.body.aanhef,
+    let klantnummer             = req.body.klantnummer,
+        aanhef                  = req.body.aanhef,
         achternaam              = req.body.achternaam,
         tussenvoegsels          = req.body.tussenvoegsels,
         voornaam                = req.body.voornaam,
@@ -31,8 +32,9 @@ exports.new_post = (req,res) => {
         mobiel01omschrijving    = req.body.mobiel01omschrijving,
         mobiel02                = req.body.mobiel02,
         mobiel02omschrijving    = req.body.mobiel02omschrijving,
-        description             = req.body.description,
-        newNAW                  = {aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01omschrijving: mobiel01omschrijving, mobiel02: mobiel02, mobiel02omschrijving: mobiel02omschrijving, description: description};
+        email                   = req.body.email,
+        omschrijving             = req.body.omschrijving,
+        newNAW                  = {klantnummer: klantnummer, aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01omschrijving: mobiel01omschrijving, mobiel02: mobiel02, mobiel02omschrijving: mobiel02omschrijving, email: email, omschrijving: omschrijving};
     NAW.create(newNAW, (err,naw) => {
         if(err){
             console.log("Create NAW: Something went wrong. \n" + err);

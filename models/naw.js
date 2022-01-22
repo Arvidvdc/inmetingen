@@ -2,6 +2,7 @@ const   mongoose                = require("mongoose"),
         passportLocalMongoose   = require("passport-local-mongoose");
 
 const NAWSchema = new mongoose.Schema({
+    klantnummer: Number,
     aanhef: String,
     voornaam: String,
     tussenvoegsels: String,
@@ -14,7 +15,8 @@ const NAWSchema = new mongoose.Schema({
     mobiel01omschrijving: String,
     mobiel02: String,
     mobiel02omschrijving: String,
-    description: String
+    email: String,
+    omschrijving: String
 });
 
 NAWSchema.plugin(passportLocalMongoose);

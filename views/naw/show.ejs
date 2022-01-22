@@ -2,43 +2,41 @@
 
 <div class="container">
     <div class="center">
-        <div class="row"><h3><%= foundNAW.achternaam %> </h3></div>
+        <div class="row"><h3>Klantnummer: <%= foundNAW.klantnummer %> </h3></div>
         <div class="gallery">
             <div class="row">
-                <div class="col-2">Naam: </div>
-                <div class="col-2">
-                    <%= foundNAW.aanhef %> <%= foundNAW.voornaam %> <%= foundNAW.tussenvoegsels %> <%= foundNAW.achternaam %>
-                </div>
+                <div class="col-3 hid">Naam: </div>
+                <div class="col-9"><%= foundNAW.aanhef %> <%= foundNAW.voornaam %> <%= foundNAW.tussenvoegsels %> <%= foundNAW.achternaam %></div>
             </div>
             <div class="row">
-                <div class="col-2">Adres: </div>
-                <div class="col-2">
-                    <%= foundNAW.adres %> <%= foundNAW.woonplaats %>
-                </div>
+                <div class="col-3 hid">Adres: </div>
+                <div class="col-9"><%= foundNAW.adres %> <%= foundNAW.woonplaats %></div>
             </div>
             <div class="row">
-                <div class="col-2">Huistelefoon: </div>
-                <div class="col-2">
-                    <%= foundNAW.huistelefoon %> 
-                </div>
+                <div class="col-3 hid">Huistelefoon: </div>
+                <div class="col-9"><%= foundNAW.huistelefoon %></div>
             </div>
             <div class="row">
-                <div class="col-2">Mobiel: </div>
-                <div class="col-2">
-                    <%= foundNAW.mobiel01omschrijving %> <%= foundNAW.mobiel01 %>
-                </div>
+                <div class="col-3 hid">Mobiel: </div>
+                <div class="col-9"><%= foundNAW.mobiel01omschrijving %> <%= foundNAW.mobiel01 %></div>
             </div>
             <div class="row">
-                <div class="col-2">Mobiel: </div>
-                <div class="col-2">
-                    <%= foundNAW.mobiel02omschrijving %> <%= foundNAW.mobiel02 %>
-                </div>
+                <div class="col-3 hid">Mobiel: </div>
+                <div class="col-9"><%= foundNAW.mobiel02omschrijving %> <%= foundNAW.mobiel02 %></div>
             </div>
             <div class="row">
-                <div class="col-2">Opmerkingen: </div>
-                <div class="col-2">
-                    <%= foundNAW.description %>
-                </div>
+                <div class="col-3 hid">Email: </div>
+                <div class="col-9"><%= foundNAW.email %></div>
+            </div>
+            <div class="row">
+                <div class="col-3 hid">Opmerkingen: </div>
+                <div class="col-9"><%= foundNAW.omschrijving %></div>
+            </div>
+            <div class="row buttonRow">
+                <div class="col-3"><a style="width: 90%; padding: 5px" href="#" class="but but-deep-brown">TODO LIST</a></div>
+                <div class="col-3"><a style="width: 90%; padding: 5px" href="#" class="but but-oker">INMETINGEN</a></div>
+                <div class="col-3"><a style="width: 90%; padding: 5px" href="#" class="but but-oker">NOTITIES</a></div>
+                <div class="col-3"><a style="width: 90%; padding: 5px" href="#" class="but but-deep-brown">LOGBOEK</a></div>
             </div>
         </div>
     </div>
