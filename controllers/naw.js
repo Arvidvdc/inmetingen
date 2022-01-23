@@ -5,6 +5,9 @@ const NAW   = require("../models/naw");
 let moment = require("moment"); //code voor opmaak datum
 const { utc, now } = require("moment");
 const { redirect } = require("express/lib/response");
+const req = require("express/lib/request");
+const res = require("express/lib/response");
+const { findByIdAndUpdate } = require("../models/naw");
 
 // NAW Index route
 exports.index = (req,res) => {
@@ -58,4 +61,25 @@ exports.show = (req,res) => {
             res.render("./naw/show", {moment: moment, foundNAW: foundNAW, page: "nawShow"});
         }
     })
+}
+
+// EDIT
+exports.edit = (req, res) => {
+    NAW.findById(req.params.id, (err,foundNAW) => {
+        if(err) {
+            redirect("back");
+        } else {
+            res.render("./naw/edit", {page: "nawEdit", foundNAW: foundNAW});
+        }
+    })
+}
+
+exports.update = (req,res) => {
+    NAW.findByIdAndUpdate(req.params.id, req.body.update, (err) => {
+        if(err) {
+            console.log("Error updating NAW" + err);
+        } else {
+            res.redirect("/naw/" + req.params.id);
+        }
+    });
 }

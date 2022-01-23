@@ -1,3 +1,5 @@
+const naw = require("../models/naw");
+
 // Required dependencies
 const   express             = require("express"), 
         router              = express.Router(),
@@ -14,6 +16,11 @@ router.get("/new", naw_controller.new);
 
 // NAW Show route
 router.get("/:id", naw_controller.show);
+
+// EDIT route
+router.get("/:id/edit", naw_controller.edit);
+
+router.put("/:id", naw_controller.update);
 
 // Export router
 module.exports = router;

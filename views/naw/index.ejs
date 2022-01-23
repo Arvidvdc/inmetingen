@@ -6,10 +6,9 @@
 
                 <% foundNAW.forEach(name => { %>
                     <div class="row">
-                        <a href="/naw/<%= name._id %>"><%= name.achternaam %> - <%= name.woonplaats %></a>
+                        <a href="/naw/<%= name._id %>"><%= name.klantnummer %> - <%= name.achternaam %> - <%= name.woonplaats %></a>
                     </div>
                 <% }); %>
-
         </div>
     </div>
 

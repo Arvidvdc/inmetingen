@@ -2,7 +2,9 @@
 
 <div class="container">
     <div class="center">
-        <div class="row"><h3>Klantnummer: <%= foundNAW.klantnummer %> </h3></div>
+        <div class="row">
+            <h3>Klantnummer: <%= foundNAW.klantnummer %> <a class="subtext" href="/naw/<%= foundNAW._id %>/edit">bewerken</a></h3>
+        </div>
         <div class="gallery">
             <div class="row">
                 <div class="col-3 hid">Naam: </div>

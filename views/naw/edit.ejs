@@ -2,106 +2,108 @@
 
 <div class="container">
     <div class="center">
-        <div class="row"><h3>NIEUWE KLANT</h3></div>
+        <div class="row"><h3>BIJWERKEN KLANT</h3></div>
         <div class="gallery">
-            <form action="/naw/new" method="POST" name="">
+            <form action="/naw/<%= foundNAW._id %>?_method=PUT" method="POST" name="">
                 <div class="row">
                     <div class="col-6"><label for="klantnummer">Klantnummer</label></div>
                     <div class="col-6">
-                        <input type="number" id="klantnummer" name="klantnummer" autofocus>
+                        <input type="number" id="klantnummer" name="klantnummer" value="<%= foundNAW.klantnummer %>" disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6"><label for"aanhef">Aanhef</label></div>
                     <div class="col-6">
-                        <select id="aanhef" name="aanhef" required>
-                            <option value="dhr.">De heer</option>
-                            <option value="mevr.">Mevrouw</option>
-                            <option value="familie">Familie</option>
+                        <select id="aanhef" name="update[aanhef]"  required autofocus>
+                            <option value="dhr." <%= typeof foundNAW.aanhef !== 'undefined' && foundNAW.aanhef === 'dhr.' ? 'selected' : '' %>>De heer</option>
+                            <option value="mevr." <%= typeof foundNAW.aanhef !== 'undefined' && foundNAW.aanhef === 'mevr.' ? 'selected' : '' %>>Mevrouw</option>
+                            <option value="familie" <%= typeof foundNAW.aanhef !== 'undefined' && foundNAW.aanhef === 'familie' ? 'selected' : '' %>>Familie</option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6"><label for="achternaam">Achternaam</label></div>
                     <div class="col-6">
-                        <input type="text" id="achternaam" name="achternaam" required>
+                        <input type="text" id="achternaam" name="update[achternaam]" value="<%= foundNAW.achternaam %>" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6"><label for="tussenvoegsels">Tussenvoegsels</label></div>
                     <div class="col-6">
-                        <input type="text" id="tussenvoegsels" name="tussenvoegsels">
+                        <input type="text" id="tussenvoegsels" name="update[tussenvoegsels]" value="<%= foundNAW.tussenvoegsels %>">
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-6"><label for="voornaam">Voornaam</label></div>
                     <div class="col-6">
-                        <input type="text" id="voornaam" name="voornaam">
+                        <input type="text" id="voornaam" name="update[voornaam]" value="<%= foundNAW.voornaam %>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6"><label for="adres">Adres</label></div>
                     <div class="col-6">
-                        <input type="text" id="adres" name="adres">
+                        <input type="text" id="adres" name="update[adres]" value="<%= foundNAW.adres %>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6"><label for="postcode">Postcode / Woonplaats</label></div>
                     <div class="col-2">
-                        <input type="text" id="postcode" name="postcode" style="width: 75%;" placeholder="9672 BL">
+                        <input type="text" id="postcode"  name="update[postcode]" value="<%= foundNAW.postcode %>" style="width: 75%;">
                     </div>
                     <div class="col-4">
-                        <input type="text" id="woonplaats" name="woonplaats" style="width: 93%;">
+                        <input type="text" id="woonplaats" name="update[woonplaats]" value="<%= foundNAW.woonplaats %>" style="width: 93%;">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6"><label for="telefoonnummer">Telefoonnummer</label></div>
                     <div class="col-6">
-                        <input type="tel" id="telefoonnummer" name="telefoonnummer" placeholder="0597-431313">
+                        <input type="tel" id="telefoonnummer" name="update[telefoonnummer]" value="<%= foundNAW.telefoonnummer %>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6"><label for="mobiel01">Mobiel 01</label></div>
                     <div class="col-6">
-                        <input type="tel" id="mobiel01" name="mobiel01" placeholder="06-12345678">
+                        <input type="tel" id="mobiel01" name="update[mobiel01]" value="<%= foundNAW.mobiel01 %>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6"><label for="mobiel01omschrijving">Mobiel 01 omschrijving</label></div>
                     <div class="col-6">
-                        <input type="text" id="mobiel01omschrijving" name="mobiel01omschrijving">
+                        <input type="text" id="mobiel01omschrijving" name="update[mobiel01omschrijving]" value="<%= foundNAW.mobiel01omschrijving %>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6"><label for="mobiel02">Mobiel 02</label></div>
                     <div class="col-6">
-                        <input type="tel" id="mobiel02" name="mobiel02" placeholder="06-12345678">
+                        <input type="tel" id="mobiel02" name="update[mobiel02]" value="<%= foundNAW.mobiel02 %>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6"><label for="mobiel02omschrijving">Mobiel 02 omschrijving</label></div>
                     <div class="col-6">
-                        <input type="text" id="mobiel02omschrijving" name="mobiel02omschrijving">
+                        <input type="text" id="mobiel02omschrijving" name="update[mobiel02omschrijving]" value="<%= foundNAW.mobiel02omschrijving %>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6"><label for="email">Email</label></div>
                     <div class="col-6">
-                        <input type="email" id="email" name="email">
+                        <input type="email" id="email" name="update[email]" value="<%= foundNAW.email %>">
                     </div>
                 </div>
-
+                
                 <div class="row">
                     <div class="col-6"><label for="omschrijving">Opmerkingen</label></div>
                     <div class="col-6">
-                        <textarea type="text" id="omschrijving" name="omschrijving"></textarea>
+                        <textarea type="text" id="omschrijving" name="update[omschrijving]" value="<%= foundNAW.omschrijving %>"></textarea>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-6"></div>
                     <div class="col-2"><input class="but but-deep-brown" type="reset" value="Herstellen"></div>
                     <div class="col-2"></div>
-                    <div class="col-2"><input class="but but-deep-brown" type="submit" value="Toevoegen"></div>
+                    <div class="col-2"><input class="but but-deep-brown" type="submit" value="Updaten klant"></div>
                 </div>
             </form>
         </div>
