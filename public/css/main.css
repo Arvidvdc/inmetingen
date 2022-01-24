@@ -39,6 +39,9 @@ div.gallery:hover {
 .center a {
     color: #ddba3f;
 }
+.buttonRow a {
+    color: #006400;
+}
 
 [class*="col-"] {
     float: left;
