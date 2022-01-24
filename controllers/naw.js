@@ -36,7 +36,7 @@ exports.new_post = (req,res) => {
         mobiel02                = req.body.mobiel02,
         mobiel02omschrijving    = req.body.mobiel02omschrijving,
         email                   = req.body.email,
-        omschrijving             = req.body.omschrijving,
+        omschrijving            = req.body.omschrijving,
         newNAW                  = {klantnummer: klantnummer, aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01omschrijving: mobiel01omschrijving, mobiel02: mobiel02, mobiel02omschrijving: mobiel02omschrijving, email: email, omschrijving: omschrijving};
     NAW.create(newNAW, (err,naw) => {
         if(err){
@@ -75,7 +75,25 @@ exports.edit = (req, res) => {
 }
 
 exports.update = (req,res) => {
-    NAW.findByIdAndUpdate(req.params.id, req.body.update, (err) => {
+    let klantnummer             = req.body.update.klantnummer,
+        aanhef                  = req.body.update.aanhef,
+        achternaam              = req.body.update.achternaam,
+        tussenvoegsels          = req.body.update.tussenvoegsels,
+        voornaam                = req.body.update.voornaam,
+        adres                   = req.body.update.adres,
+        postcode                = req.body.update.postcode,
+        woonplaats              = req.body.update.woonplaats,
+        huistelefoon            = req.body.update.telefoonnummer,
+        mobiel01                = req.body.update.mobiel01,
+        mobiel01omschrijving    = req.body.update.mobiel01omschrijving,
+        mobiel02                = req.body.update.mobiel02,
+        mobiel02omschrijving    = req.body.update.mobiel02omschrijving,
+        email                   = req.body.update.email,
+        omschrijving            = req.body.update.omschrijving,
+        laatstewijziging        = Date.now(),
+        updateNAW               = {klantnummer: klantnummer, aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01omschrijving: mobiel01omschrijving, mobiel02: mobiel02, mobiel02omschrijving: mobiel02omschrijving, email: email, omschrijving: omschrijving, laatstewijziging: laatstewijziging};
+
+    NAW.findByIdAndUpdate(req.params.id, updateNAW, (err) => {
         if(err) {
             console.log("Error updating NAW" + err);
         } else {

@@ -16,7 +16,12 @@ const NAWSchema = new mongoose.Schema({
     mobiel02: String,
     mobiel02omschrijving: String,
     email: String,
-    omschrijving: String
+    omschrijving: String,
+    aanmaakdatum: {
+        type: Date,
+        default: Date.now
+    },
+    laatstewijziging: Date
 });
 
 NAWSchema.plugin(passportLocalMongoose);
