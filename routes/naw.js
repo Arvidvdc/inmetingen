@@ -22,5 +22,8 @@ router.get("/:id/edit", naw_controller.edit);
 
 router.put("/:id", naw_controller.update);
 
+// DESTROY route
+router.delete("/:id/destroy", naw_controller.destroy);
+
 // Export router
 module.exports = router;

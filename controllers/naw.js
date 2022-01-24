@@ -9,7 +9,7 @@ const req = require("express/lib/request");
 const res = require("express/lib/response");
 const { findByIdAndUpdate } = require("../models/naw");
 
-// NAW Index route
+// NAW Index controller
 exports.index = (req,res) => {
     NAW.find({}, (err, foundNAW) => {
         if(err){
@@ -20,7 +20,7 @@ exports.index = (req,res) => {
     });
 }
 
-// NAW Create
+// NAW Create controller
 exports.new_post = (req,res) => {
     let klantnummer             = req.body.klantnummer,
         aanhef                  = req.body.aanhef,
@@ -47,12 +47,12 @@ exports.new_post = (req,res) => {
     });
 }
 
-// NAW New
+// NAW New controller
 exports.new = (req,res) => {
     res.render("./naw/new", {moment: moment, page: "nawNew"});
 }
 
-// NAW Show
+// NAW Show controller
 exports.show = (req,res) => {
     NAW.findById(req.params.id, (err, foundNAW) => {
         if(err) {
@@ -63,7 +63,7 @@ exports.show = (req,res) => {
     })
 }
 
-// EDIT
+// NAW EDIT controller
 exports.edit = (req, res) => {
     NAW.findById(req.params.id, (err,foundNAW) => {
         if(err) {
@@ -80,6 +80,19 @@ exports.update = (req,res) => {
             console.log("Error updating NAW" + err);
         } else {
             res.redirect("/naw/" + req.params.id);
+        }
+    });
+}
+
+// NAW DESTROY controller
+exports.destroy = (req,res) => {
+    console.log(req.params.id);
+    NAW.findByIdAndDelete(req.params.id, (err) => {
+        if(err) {
+            console.log("Error deleting record:" + req.params.id);
+            res.redirect("back");
+        } else {
+            res.redirect("/naw/");    
         }
     });
 }

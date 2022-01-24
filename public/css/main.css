@@ -36,6 +36,9 @@ div.gallery:hover {
     text-overflow: ellipsis;
 }
 
+.center a {
+    color: #ddba3f;
+}
 
 [class*="col-"] {
     float: left;
@@ -92,9 +95,8 @@ button:hover {
 }
 
 .but:hover:not(.disabled) {
-    color: #212529;
+    /* color: #212529; */
     box-shadow: 0 0 0 0.2rem #52585d80;
-
 }
 
 .but-oker {
@@ -145,6 +147,19 @@ button:hover {
     background-color: #422100;
     border-color: #4a2908;
 }
+
+.but-link {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    color: #ddba3f;
+    padding: 0;
+    /* text-decoration: underline; */
+    font-family: inherit;
+    font-size: inherit;
+}
+
 .disabled {
     color: #000000;
     background-color: #7e7e7e;
@@ -161,7 +176,14 @@ button:hover {
     float: right;
     font-size: small;
     text-transform: uppercase;
-    color: pink;
+    padding: 5px 10px;
+}
+
+.largetext {
+    float: right;
+    font-size: larger;
+    text-transform: uppercase;
+    padding: 5px 10px;
 }
 
 /* for mobile */

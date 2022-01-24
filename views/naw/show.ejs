@@ -1,9 +1,17 @@
 <%- include("../partials/header") -%>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 
 <div class="container">
     <div class="center">
         <div class="row">
-            <h3>Klantnummer: <%= foundNAW.klantnummer %> <a class="subtext" href="/naw/<%= foundNAW._id %>/edit">bewerken</a></h3>
+            <h3>Klantnummer: <%= foundNAW.klantnummer %>
+                <span class="subtext">
+                    <form action="/naw/<%= foundNAW._id %>/destroy?_method=DELETE" method="POST">
+                        <a style="color: #ddba3f; text-decoration: none;" href="/naw/<%= foundNAW._id %>/edit">BEWERKEN</a> | 
+                        <button class="but-link" type="submit" onclick="return confirm('Weet je zeker dat je de klant <%= foundNAW.achternaam %> wil verwijderen?');">VERWIJDEREN</button>
+                    </form>
+                </span>
+            </h3>
         </div>
         <div class="gallery">
             <div class="row">

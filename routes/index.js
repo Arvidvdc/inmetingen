@@ -7,5 +7,8 @@ const   express             = require("express"),
 // Default route
 router.get("/", index_controller.home);
 
+// ThE SARgE route
+router.get("/sgt", index_controller.SARgE);
+
 // Export router
 module.exports = router;

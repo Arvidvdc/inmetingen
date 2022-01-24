@@ -9,25 +9,23 @@
     </style>
 
     <div class="static">
-            <button class="but <%= typeof page !== 'undefined' && page === 'Home' ? 'disabled' : 'but-deep-brown' %>" onclick="history.back()" <%= typeof page !== 'undefined' && page === 'Home' ? 'disabled' : '' %>>Terug</button>
-            <% switch (page) { 
-                case 'Home' : %>
-                    <a href="/naw" class="but but-oker">NAW</a>
+        <button class="but <%= typeof page !== 'undefined' && page === 'Home' ? 'disabled' : 'but-deep-brown' %>" onclick="history.back()" <%= typeof page !== 'undefined' && page === 'Home' ? 'disabled' : '' %>>Terug</button>
+        <% switch (page) { 
+            case 'Home' : %>
+                <a href="/naw" class="but but-oker">NAW</a>
 
-                    <% break;
-                case 'nawIndex' : %>
-                    <a href="/naw/new"  class="but but-oker">Nieuwe klant</a>
+                <% break;
+            case 'nawIndex' : %>
+                <a href="/naw/new"  class="but but-oker">Nieuwe klant</a>
 
-                    <% break;
-                case 'nawNew' : %>
-                    <a href="/naw" class="but but-oker">NAW</a>
+                <% break;
+            case 'nawNew' : %>
+                <a href="/naw" class="but but-oker">NAW</a>
 
-                    <% break;
-                case 'nawShow' : %>
-                    <a href="/naw" class="but but-oker">NAW</a>
+                <% break;
+            case 'nawShow' : %>
+                <a href="/naw" class="but but-oker">NAW</a>
 
-                    <% break;
-            } %>
-
+                <% break;
+        } %>
     </div>
-    <%= page %>
