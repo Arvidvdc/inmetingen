@@ -9,7 +9,7 @@
     </style>
 
     <div class="static">
-        <button class="but <%= typeof page !== 'undefined' && page === 'Home' ? 'disabled' : 'but-deep-brown' %>" onclick="history.back()" <%= typeof page !== 'undefined' && page === 'Home' ? 'disabled' : '' %>>Terug</button>
+        <button class="but <%= typeof page !== 'undefined' && page === 'Home' ? 'disabled' : 'but-oker' %>" onclick="history.back()" <%= typeof page !== 'undefined' && page === 'Home' ? 'disabled' : '' %>>Terug</button>
         <% switch (page) { 
             case 'Home' : %>
                 <a href="/naw" class="but but-oker">NAW</a>
