@@ -104,7 +104,6 @@ exports.update = (req,res) => {
 
 // NAW DESTROY controller
 exports.destroy = (req,res) => {
-    console.log(req.params.id);
     NAW.findByIdAndDelete(req.params.id, (err) => {
         if(err) {
             console.log("Error deleting record:" + req.params.id);
