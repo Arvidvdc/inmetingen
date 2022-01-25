@@ -4,7 +4,7 @@
 <div class="container">
     <div class="center">
         <div class="row">
-            <h3>Klantnummer: <%= foundNAW.klantnummer %>
+            <h3>Klantnummer <%= foundNAW.klantnummer %>
                 <span class="subtext">
                     <form action="/naw/<%= foundNAW._id %>/destroy?_method=DELETE" method="POST">
                         <a style="color: #ddba3f; text-decoration: none;" href="/naw/<%= foundNAW._id %>/edit">BEWERKEN</a> | 

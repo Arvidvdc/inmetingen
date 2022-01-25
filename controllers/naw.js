@@ -11,13 +11,23 @@ const { findByIdAndUpdate } = require("../models/naw");
 
 // NAW Index controller
 exports.index = (req,res) => {
-    NAW.find({}, (err, foundNAW) => {
-        if(err){
-            console.log("Something went wrong");
-        } else {
-            res.render("./naw/index", {foundNAW: foundNAW, page: "nawIndex"});
-        };
-    });
+    if(Object.keys(req.query).length >= 1) {
+        NAW.find({achternaam: new RegExp('^'+req.query.search+'$', "i") }, (err, foundNAW) => {
+            if(err) {
+                console.log("You FUCKED it UP");
+            } else {
+                res.render("./naw/index", {foundNAW: foundNAW, page: "nawIndex"});
+            }
+        });
+    } else {
+        NAW.find({}, (err, foundNAW) => {
+            if(err) {
+                console.log("Something went wrong");
+            } else {
+                res.render("./naw/index", {foundNAW: foundNAW, page: "nawIndex"});
+            };
+        });
+    }
 }
 
 // NAW Create controller
