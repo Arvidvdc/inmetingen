@@ -6,5 +6,8 @@ const   express             = require("express"),
 // Index route
 router.get("/", info_controller.index);
 
+// Maatvoering route
+router.get("/maatvoering", info_controller.maatvoering);
+
 // Export router
 module.exports = router;
