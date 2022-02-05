@@ -13,6 +13,7 @@ const   User                = require("./models/user"),
 
 // Route dependencies
 const   indexRoutes         = require("./routes/index"),
+        infoRoutes          = require("./routes/info"),
         nawRoutes           = require("./routes/naw");
 
 // dotENV
@@ -68,6 +69,7 @@ app.use((req,res,next)=>{
 
 // Routes
 app.use(indexRoutes),
+app.use("/info", infoRoutes),
 app.use("/naw", nawRoutes);
 
 // Listener
