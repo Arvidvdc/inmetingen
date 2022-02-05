@@ -38,14 +38,9 @@ form.zoek button:hover {
     background-color: #8b762a;
     border-color: #927a23;
 }
-.nawIndex {
-    /* width: 50%;
-    margin: auto; */
-}
 
 div.gallery {
     border: 1px solid #ccc;
-    /* margin: 5px; */
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     overflow: hidden;
@@ -242,7 +237,6 @@ label {
     .nawIndex {
         width: 50%;
         margin: auto;
-        /* min-width: 450px; */
     }
 }
 
