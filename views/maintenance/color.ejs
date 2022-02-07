@@ -1,0 +1,23 @@
+<%- include("../partials/header") -%>
+    <div class="col-3">
+        <div class="center">
+            <% let data = JSON.stringify(foundColors) %>
+            <% foundColors.forEach(color => { %>
+                <div class="gallery" onclick="colorData('<%= data %>','<%= color._id %>')">
+                    <div class="row" id="<%= color._id %>">
+                        <%= color.kleurnummer %>
+                        <%= color.kleuromschrijving %>
+                    </div>
+                </div>
+            <% }); %> 
+            <div class="gallery" style="text-align: center;" onclick="javascript:location.href='/maintenance/kleuren/new'">
+                NIEUWE KLEUR
+            </div>
+        </div>
+    </div>
+
+    <div class="col-9" id="colorData">
+
+    </div>
+<script src="/js/color.js"></script>
+<%- include("../partials/footer") -%>
