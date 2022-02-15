@@ -1,0 +1,24 @@
+<%- include("../partials/header") -%>
+
+    <div class="col-3">
+        <div class="center">
+            <% let data = JSON.stringify(foundRoofs) %>
+            <% foundRoofs.forEach(roof => { %>
+                <div class="gallery" onclick="roofData('<%= data %>','<%= roof._id %>')">
+                    <div class="row" id="<%= roof._id %>">
+                        <%= roof.dakplaat %>
+                    </div>
+                </div>
+            <% }); %> 
+            <div class="gallery" style="text-align: center;" onclick="javascript:location.href='/maintenance/dak/new'">
+                NIEUW DAKTYPE
+            </div>
+        </div>
+    </div>
+
+    <div class="col-9" id="roofData">
+
+    </div>
+    
+<script src="/js/roof.js"></script>
+<%- include("../partials/footer") -%>
