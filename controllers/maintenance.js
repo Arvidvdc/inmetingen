@@ -1,5 +1,6 @@
 // Required dependencies
 const COLOR   = require("../models/color");
+const ROOF   = require("../models/rooftop");
 
 // Index controller
 exports.index = (req,res) => {
@@ -69,6 +70,53 @@ exports.colorAdd = (req,res) => {
             res.redirect("back");
         } else {
             res.redirect("/maintenance/kleuren");
+        };
+    });
+}
+
+// Rooftop index controller
+exports.rooftop = (req,res) => {
+    ROOF.find({}, (err, foundRoofs) => {
+        if(err) {
+            console.log("ROOFTOPINDEX - Something went wrong");
+            res.send("Er is een foutmelding ontstaan. Raadpleeg de beheerder.")
+        } else {
+            res.render("./maintenance/rooftop", {foundRoofs: foundRoofs, page: "roofIndex"});
+        }
+    });
+}
+
+// Rooftop new controller
+exports.rooftopNew = (req, res) => {
+    res.render("./maintenance/rooftopNew", {page: "roofNew"});
+}
+
+// Rooftop create controler
+exports.rooftopAdd = (req,res) => {
+    let dakplaat                = req.body.dakplaat,
+        dakplaatomschrijving    = req.body.omschrijving;
+
+    let designline          = false,
+        ecoline             = false,
+        luxline             = false,
+        topline             = false,
+        trendline           = false,
+        ultraline           = false;
+
+    if(req.body.designline == "on") {designline = true;}
+    if(req.body.ecoline == "on") {ecoline = true;}
+    if(req.body.luxline == "on") {luxline = true;}
+    if(req.body.topline == "on") {topline = true;}
+    if(req.body.trendline == "on") {trendline = true;}
+    if(req.body.ultraline == "on") {ultraline = true;}
+
+    let newROOF = {dakplaat: dakplaat, dakplaatomschrijving: dakplaatomschrijving, designline: designline, ecoline: ecoline, luxline: luxline, topline: topline, trendline: trendline, ultraline: ultraline};
+    ROOF.create(newROOF, (err,roof) => {
+        if(err){
+            console.log("Create rooftop: Something went wrong. \n" + err);
+            res.redirect("back");
+        } else {
+            res.redirect("/maintenance/dak");
         };
     });
 }
