@@ -94,7 +94,8 @@ exports.colorEdit = (req,res) => {
 //Color update controller
 exports.colorUpdate = (req,res) => {
     let kleurnummer         = req.body.nummer,
-        kleuromschrijving   = req.body.omschrijving;
+        kleuromschrijving   = req.body.omschrijving,
+        laatstewijziging        = Date.now();
     let designline          = false,
         ecoline             = false,
         luxline             = false,
@@ -131,7 +132,7 @@ exports.colorUpdate = (req,res) => {
     if(req.body.schuttingplanken == "on") {schuttingplanken = true;}
     if(req.body.screenlinef513zip == "on") {screenlinef513zip = true;}
 
-    let updateColor = {kleurnummer: kleurnummer, kleuromschrijving: kleuromschrijving, designline: designline, ecoline: ecoline, luxline: luxline, topline: topline, trendline: trendline, ultraline: ultraline, al22: al22, al23: al23, al24: al24, w350zip: w350zip, t350zip: t350zip, w350: w350, t350: t350, t200: t200, verandawanden: verandawanden, schuttingplanken: schuttingplanken, screenlinef513zip: screenlinef513zip};
+    let updateColor = {kleurnummer: kleurnummer, kleuromschrijving: kleuromschrijving, designline: designline, ecoline: ecoline, luxline: luxline, topline: topline, trendline: trendline, ultraline: ultraline, al22: al22, al23: al23, al24: al24, w350zip: w350zip, t350zip: t350zip, w350: w350, t350: t350, t200: t200, verandawanden: verandawanden, schuttingplanken: schuttingplanken, screenlinef513zip: screenlinef513zip, laatstewijziging: laatstewijziging};
     
     COLOR.findByIdAndUpdate(req.params.id, updateColor, (err) => {
         if(err) {
@@ -216,7 +217,8 @@ exports.rooftopEdit = (req,res) => {
 // Rooftop update controler
 exports.rooftopUpdate = (req,res) => {
     let dakplaat                = req.body.dakplaat,
-        dakplaatomschrijving    = req.body.omschrijving;
+        dakplaatomschrijving    = req.body.omschrijving,
+        laatstewijziging        = Date.now();
 
     let designline          = false,
         ecoline             = false,
@@ -232,7 +234,7 @@ exports.rooftopUpdate = (req,res) => {
     if(req.body.trendline == "on") {trendline = true;}
     if(req.body.ultraline == "on") {ultraline = true;}
 
-    let updateROOF = {dakplaat: dakplaat, dakplaatomschrijving: dakplaatomschrijving, designline: designline, ecoline: ecoline, luxline: luxline, topline: topline, trendline: trendline, ultraline: ultraline};
+    let updateROOF = {dakplaat: dakplaat, dakplaatomschrijving: dakplaatomschrijving, designline: designline, ecoline: ecoline, luxline: luxline, topline: topline, trendline: trendline, ultraline: ultraline, laatstewijziging: laatstewijziging};
     ROOF.findByIdAndUpdate(req.params.id, updateROOF, (err) => {
         if(err) {
             console.log("Error updating Roof" + err);
@@ -299,10 +301,11 @@ exports.productEdit = (req,res) => {
 
 // Product update controler
 exports.productUpdate = (req,res) => {
-    let product     = req.body.product,
-        categorie   = req.body.categorie;
+    let product             = req.body.product,
+        categorie           = req.body.categorie,
+        laatstewijziging    = Date.now();
 
-    let updateProduct = {product: product, categorie: categorie};
+    let updateProduct = {product: product, categorie: categorie, laatstewijziging: laatstewijziging};
     PRODUCT.findByIdAndUpdate(req.params.id, updateProduct, (err) => {
         if(err) {
             console.log("Error updating Product" + err);

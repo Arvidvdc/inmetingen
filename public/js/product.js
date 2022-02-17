@@ -35,7 +35,12 @@ function Data(products, productID) {
             // Creating element GALLERY
             let elementGallery = document.createElement("div");
             elementGallery.classList.add("gallery");
-            elementGallery.innerHTML = element.product.toUpperCase() + "<hr> Behorende bij categorie: ".toUpperCase() + element.categorie;
+            // Update date
+            let updateDate = element.aanmaakdatum.split("T",1);
+            if(element.laatstewijziging!==undefined) {
+                updateDate = element.laatstewijziging.split("T",1);
+            }
+            elementGallery.innerHTML = element.product.toUpperCase() + "<hr> Behorende bij categorie: " + element.categorie.toUpperCase() + "<p>Laatste bijwerking: " + updateDate  + "</p>";
 
             // Creating element ROW
             let elementRow = document.createElement("div");
