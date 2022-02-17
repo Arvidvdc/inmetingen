@@ -38,23 +38,24 @@ form.zoek button:hover {
     background-color: #8b762a;
     border-color: #927a23;
 }
-.nawIndex {
-    /* width: 50%;
-    margin: auto; */
-}
 
 div.gallery {
     border: 1px solid #ccc;
-    /* margin: 5px; */
     border-radius: 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
     overflow: hidden;
     text-overflow: clip;
     padding: 7px;
+    margin: 6px 0;
 }
 
 div.gallery:hover {
     border: 1px solid #777;
+}
+
+.contentsize {
+    width:fit-content;
+    margin: auto;
 }
 
 .clip {
@@ -78,22 +79,18 @@ div.gallery:hover {
     color: #006400;
 }
 
-[class*="col-"] {
-    float: left;
-    padding: 5px 0px;
-}
-
 /* Forms */
-input[type=text], input[type=email], input[type=tel], input[type=number], select, textarea {
+input[type=text], input[type=email], input[type=tel], input[type=number], input[type=checkbox], select, textarea {
     width: 95%;
     padding: 10px 5px;
     border: 1px solid #ffffff;
     border-radius: 4px;
     resize: vertical;
+    margin: 10px;
 }
 
 label {
-    padding: 12px 12px 12px 0;
+    padding: 10px 5px;
     display: inline-block;
 }
 
@@ -107,9 +104,9 @@ label {
     cursor: pointer;
     user-select: none;
     border: 1px solid transparent;
-    padding: .375rem .75rem;
+    padding: 6px 12px;
     min-width: 120px;
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.5;
     border-radius: 12px;
     transition: color .15s ease-in-out,
@@ -117,7 +114,7 @@ label {
         border-color .15s ease-in-out,
         text-trasform .15s ease-in-out,
         box-shadow .15s ease-in-out;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
 }
 
 .but:hover:not(.disabled) {
@@ -185,8 +182,15 @@ label {
     padding: 5px 10px;
 }
 
+[class*="col-"] {
+    float: left;
+    padding: 5px 0px;
+}
+
 /* for mobile */
-[class*="col-"] {width: 100%;}
+[class*="col-"] {
+    width: 100%;
+}
 
 .hid {
     visibility: hidden;
@@ -202,10 +206,38 @@ label {
     text-align: center;
 }
 
+.buttonRow .but{
+    width: 100%;
+}
+
+.static a {
+    min-width: 75px;
+    width: auto;
+}
 
 @media only screen and (min-width: 600px) {
     /* For tablets: */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
 
+    .contentsize {
+        width: inherit;
+        margin: auto;
+    }
+    
+    .buttonRow {
+        text-align: center;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -228,21 +260,33 @@ label {
         display: block;
     }
 
-    .buttonRow {
-        text-align: justify;
-        text-justify: inter-word;
-    }
-
     .center {
         margin: auto;
         width: 75%;
         padding: 10px;
     }
 
-    .nawIndex {
+    /* .nawIndex {
         width: 50%;
         margin: auto;
-        /* min-width: 450px; */
+    } */
+
+    .contentsize {
+        width: inherit;
+        margin: auto;
+    }
+
+    .buttonRow {
+        text-align: justify;
+    }
+
+    .buttonRow .but{
+        width: auto;
+        margin: 10px;
+    }
+
+    .col-2 label {
+        padding: 8px 0px;
     }
 }
 

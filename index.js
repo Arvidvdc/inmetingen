@@ -13,7 +13,9 @@ const   User                = require("./models/user"),
 
 // Route dependencies
 const   indexRoutes         = require("./routes/index"),
-        nawRoutes           = require("./routes/naw");
+        infoRoutes          = require("./routes/info"),
+        nawRoutes           = require("./routes/naw"),
+        maintenanceRoutes          = require("./routes/maintenance");
 
 // dotENV
 require('dotenv').config();
@@ -68,7 +70,9 @@ app.use((req,res,next)=>{
 
 // Routes
 app.use(indexRoutes),
-app.use("/naw", nawRoutes);
+app.use("/info", infoRoutes),
+app.use("/naw", nawRoutes),
+app.use("/maintenance", maintenanceRoutes);
 
 // Listener
 app.listen(appPort, appIP, ()=>console.log("InmetingTool \nStarted on: " + appIP + "\n      port: " + appPort ));

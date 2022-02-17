@@ -1,0 +1,101 @@
+<%- include("../partials/header") -%>
+
+<div class="center">
+    <div class="row"><h3>Nieuwe kleur</h3></div>
+    <div class="gallery">
+        <form action="/maintenance/kleuren/new" method="post">
+            <div class="row">
+                <div class="col-6"><label for="nummer">Kleurnummer</label></div>
+                <div class="col-6">
+                    <input type="text" id="nummer" name="nummer" autofocus required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6"><label for="omschrijving">Beschrijving</label></div>
+                <div class="col-6">
+                    <input type="text" id="omschrijving" name="omschrijving" placeholder="Antracietgrijs">
+                </div>
+            </div>
+
+            <div class="row">
+                <hr>
+                <button class="but but-oker" id="supportButton" onclick="changeCheckboxes(event)">Alles selecteren</button>
+            </div>
+
+            <div class="row">
+                <hr>
+                <div class="col-6">Geschikt voor type veranda:</div>
+                <div class="col-2"><label for="designline">Designline</label></div>
+                <div class="col-1"><input type="checkbox" id="designline" name="designline"></div>
+                <div class="col-2"><label for="ecoline">Ecoline</label></div>
+                <div class="col-1"><input type="checkbox" id="ecoline" name="ecoline"></div>
+            </div>
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-2"><label for="luxline">Luxline</label></div>
+                <div class="col-1"><input type="checkbox" id="luxline" name="luxline"></div>
+                <div class="col-2"><label for="topline">Topline</label></div>
+                <div class="col-1"><input type="checkbox" id="topline" name="topline"></div>
+            </div>
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-2"><label for="trendline">Trendline</label></div>
+                <div class="col-1"><input type="checkbox" id="trendline" name="trendline"></div>
+                <div class="col-2"><label for="ultraline">Ultraline</label></div>
+                <div class="col-1"><input type="checkbox" id="ultraline" name="ultraline"></div>
+            </div>
+            <div class="row">
+                <hr>
+                <div class="col-6">Geschikt voor type glasschuifwand (GSW):</div>
+                <div class="col-2"><label for="al22">AL22 laag</label></div>
+                <div class="col-1"><input type="checkbox" id="al22" name="al22"></div>
+                <div class="col-2"><label for="al23">AL23 hoog</label></div>
+                <div class="col-1"><input type="checkbox" id="al23" name="al23"></div>
+            </div>
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-2"><label for="al24">AL24</label></div>
+                <div class="col-1"><input type="checkbox" id="al24" name="al24"></div>
+            </div>
+            <div class="row">
+                <hr>
+                <div class="col-6">Geschikt voor type zonwering:</div>
+                <div class="col-2"><label for="w350zip">W350ZIP</label></div>
+                <div class="col-1"><input type="checkbox" id="w350zip" name="w350zip"></div>
+                <div class="col-2"><label for="t350zip">T350ZIP</label></div>
+                <div class="col-1"><input type="checkbox" id="t350zip" name="t350zip"></div>
+            </div>
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-2"><label for="w350">W350</label></div>
+                <div class="col-1"><input type="checkbox" id="w350" name="w350"></div>
+                <div class="col-2"><label for="wt50">T350</label></div>
+                <div class="col-1"><input type="checkbox" id="t350" name="t350"></div>
+            </div>
+            <div class="row">
+                <hr>
+                <div class="col-6">Geschikt voor overige types:</div>
+                <div class="col-2"><label for="verandawanden">Veranda wanden</label></div>
+                <div class="col-1"><input type="checkbox" id="verandawanden" name="verandawanden"></div>
+                <div class="col-2"><label for="schuttingplanken">Schuttingplanken</label></div>
+                <div class="col-1"><input type="checkbox" id="schuttingplanken" name="schuttingplanken"></div>
+            </div>
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-2"><label for="screenlinef513zip">Screenline F513 ZIP</label></div>
+                <div class="col-1"><input type="checkbox" id="screenlinef513zip" name="screenlinef513zip"></div>
+            </div>
+
+            <div class="row buttonRow">
+                <div class="col-3"><input class="but but-oker" type="reset" value="Herstellen"></div>
+                <div class="col-3"></div>
+                <div class="col-3"></div>
+
+                <div class="col-3"><input class="but but-oker" style="float: right;" type="submit" value="Toevoegen"></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/js/color.js"></script>
+<%- include("../partials/footer") -%>
