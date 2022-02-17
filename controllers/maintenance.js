@@ -44,6 +44,7 @@ exports.colorAdd = (req,res) => {
         t350zip             = false,
         w350                = false,
         t350                = false,
+        t200                = false,
         verandawanden       = false,
         schuttingplanken    = false,
         screenlinef513zip   = false;
@@ -61,11 +62,12 @@ exports.colorAdd = (req,res) => {
     if(req.body.t350zip == "on") {t350zip = true;}
     if(req.body.w350 == "on") {w350 = true;}
     if(req.body.t350 == "on") {t350 = true;}
+    if(req.body.t200 == "on") {t200 = true;}
     if(req.body.verandawanden == "on") {verandawanden = true;}
     if(req.body.schuttingplanken == "on") {schuttingplanken = true;}
     if(req.body.screenlinef513zip == "on") {screenlinef513zip = true;}
 
-    let newColor = {kleurnummer: kleurnummer, kleuromschrijving: kleuromschrijving, designline: designline, ecoline: ecoline, luxline: luxline, topline: topline, trendline: trendline, ultraline: ultraline, al22: al22, al23: al23, al24: al24, w350zip: w350zip, t350zip: t350zip, w350: w350, t350: t350, verandawanden: verandawanden, schuttingplanken: schuttingplanken, screenlinef513zip: screenlinef513zip};
+    let newColor = {kleurnummer: kleurnummer, kleuromschrijving: kleuromschrijving, designline: designline, ecoline: ecoline, luxline: luxline, topline: topline, trendline: trendline, ultraline: ultraline, al22: al22, al23: al23, al24: al24, w350zip: w350zip, t350zip: t350zip, w350: w350, t350: t350, t200: t200, verandawanden: verandawanden, schuttingplanken: schuttingplanken, screenlinef513zip: screenlinef513zip};
     COLOR.create(newColor, (err,color) => {
         if(err){
             console.log("Create color: Something went wrong. \n" + err);
@@ -104,6 +106,7 @@ exports.colorUpdate = (req,res) => {
         t350zip             = false,
         w350                = false,
         t350                = false,
+        t200                = false,
         verandawanden       = false,
         schuttingplanken    = false,
         screenlinef513zip   = false;
@@ -121,11 +124,12 @@ exports.colorUpdate = (req,res) => {
     if(req.body.t350zip == "on") {t350zip = true;}
     if(req.body.w350 == "on") {w350 = true;}
     if(req.body.t350 == "on") {t350 = true;}
+    if(req.body.t200 == "on") {t200 = true;}
     if(req.body.verandawanden == "on") {verandawanden = true;}
     if(req.body.schuttingplanken == "on") {schuttingplanken = true;}
     if(req.body.screenlinef513zip == "on") {screenlinef513zip = true;}
 
-    let updateColor = {kleurnummer: kleurnummer, kleuromschrijving: kleuromschrijving, designline: designline, ecoline: ecoline, luxline: luxline, topline: topline, trendline: trendline, ultraline: ultraline, al22: al22, al23: al23, al24: al24, w350zip: w350zip, t350zip: t350zip, w350: w350, t350: t350, verandawanden: verandawanden, schuttingplanken: schuttingplanken, screenlinef513zip: screenlinef513zip};
+    let updateColor = {kleurnummer: kleurnummer, kleuromschrijving: kleuromschrijving, designline: designline, ecoline: ecoline, luxline: luxline, topline: topline, trendline: trendline, ultraline: ultraline, al22: al22, al23: al23, al24: al24, w350zip: w350zip, t350zip: t350zip, w350: w350, t350: t350, t200: t200, verandawanden: verandawanden, schuttingplanken: schuttingplanken, screenlinef513zip: screenlinef513zip};
     
     COLOR.findByIdAndUpdate(req.params.id, updateColor, (err) => {
         if(err) {

@@ -17,6 +17,7 @@ const COLORSchema = new mongoose.Schema({
     t350zip: Boolean,
     w350: Boolean,
     t350: Boolean,
+    t200: Boolean,
     verandawanden: Boolean,
     schuttingplanken: Boolean,
     screenlinef513zip: Boolean,

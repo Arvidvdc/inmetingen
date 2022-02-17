@@ -115,11 +115,11 @@ function colorData(kleuren, kleurID) {
                 w350.innerHTML = "Zonwering W350";
                 elementRow.appendChild(w350);
             }
-            if(element.t350) {
-                let t350 = document.createElement("div");
-                t350.classList.add("col-6");
-                t350.innerHTML = "Zonwering T350";
-                elementRow.appendChild(t350);
+            if(element.t200) {
+                let t200 = document.createElement("div");
+                t200.classList.add("col-6");
+                t200.innerHTML = "Zonwering T200";
+                elementRow.appendChild(t200);
             }
             if(element.verandawanden) {
                 let verandawanden = document.createElement("div");
