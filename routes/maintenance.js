@@ -15,6 +15,15 @@ router.get("/kleuren/new", maintenance_controller.colorNew);
 // Color create route
 router.post("/kleuren/new", maintenance_controller.colorAdd);
 
+// Color edit route
+router.get("/kleuren/:id/edit", maintenance_controller.colorEdit);
+
+// Color update route
+router.put("/kleuren/:id", maintenance_controller.colorUpdate);
+
+// Color destroy route
+router.delete("/kleuren/:id/destroy", maintenance_controller.colorDestroy);
+
 // Rooftop index route
 router.get("/dak", maintenance_controller.rooftop);
 

@@ -74,6 +74,78 @@ exports.colorAdd = (req,res) => {
     });
 }
 
+// Color edit controller
+exports.colorEdit = (req,res) => {
+    COLOR.findById(req.params.id, (err,foundColors) => {
+        if(err) {
+            redirect("back");
+        } else {
+            res.render("./maintenance/colorEdit", {page: "colorsEdit", foundColor: foundColors});
+        }
+    });
+}
+
+//Color update controller
+exports.colorUpdate = (req,res) => {
+    let kleurnummer         = req.body.nummer,
+        kleuromschrijving   = req.body.omschrijving;
+    let designline          = false,
+        ecoline             = false,
+        luxline             = false,
+        topline             = false,
+        trendline           = false,
+        ultraline           = false,
+        al22                = false,
+        al23                = false,
+        al24                = false,
+        w350zip             = false,
+        t350zip             = false,
+        w350                = false,
+        t350                = false,
+        verandawanden       = false,
+        schuttingplanken    = false,
+        screenlinef513zip   = false;
+
+    if(req.body.designline == "on") {designline = true;}
+    if(req.body.ecoline == "on") {ecoline = true;}
+    if(req.body.luxline == "on") {luxline = true;}
+    if(req.body.topline == "on") {topline = true;}
+    if(req.body.trendline == "on") {trendline = true;}
+    if(req.body.ultraline == "on") {ultraline = true;}
+    if(req.body.al22 == "on") {al22 = true;}
+    if(req.body.al23 == "on") {al23 = true;}
+    if(req.body.al24 == "on") {al24 = true;}
+    if(req.body.w350zip == "on") {w350zip = true;}
+    if(req.body.t350zip == "on") {t350zip = true;}
+    if(req.body.w350 == "on") {w350 = true;}
+    if(req.body.t350 == "on") {t350 = true;}
+    if(req.body.verandawanden == "on") {verandawanden = true;}
+    if(req.body.schuttingplanken == "on") {schuttingplanken = true;}
+    if(req.body.screenlinef513zip == "on") {screenlinef513zip = true;}
+
+    let updateColor = {kleurnummer: kleurnummer, kleuromschrijving: kleuromschrijving, designline: designline, ecoline: ecoline, luxline: luxline, topline: topline, trendline: trendline, ultraline: ultraline, al22: al22, al23: al23, al24: al24, w350zip: w350zip, t350zip: t350zip, w350: w350, t350: t350, verandawanden: verandawanden, schuttingplanken: schuttingplanken, screenlinef513zip: screenlinef513zip};
+    
+    COLOR.findByIdAndUpdate(req.params.id, updateColor, (err) => {
+        if(err) {
+            console.log("Error updating COLOR" + err);
+        } else {
+            res.redirect("/maintenance/kleuren");
+        }
+    });
+}
+
+// Color destroy controller
+exports.colorDestroy = (req,res) => {
+    COLOR.findByIdAndDelete(req.params.id, (err) => {
+        if(err) {
+            console.log("Error deleting record:" + req.params.id);
+            res.redirect("back");
+        } else {
+            res.redirect("/maintenance/kleuren/");    
+        }
+    });
+}
+
 // Rooftop index controller
 exports.rooftop = (req,res) => {
     ROOF.find({}, (err, foundRoofs) => {
