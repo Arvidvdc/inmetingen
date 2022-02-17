@@ -1,0 +1,37 @@
+<%- include("../partials/header") -%>
+
+<div class="center">
+    <div class="row"><h3>Nieuw product</h3></div>
+    <div class="gallery">
+        <form action="/maintenance/product/new" method="post">
+            <div class="row">
+                <div class="col-6"><label for="product">Product</label></div>
+                <div class="col-6">
+                    <input type="text" id="product" name="product" autofocus required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6"><label for="categorie">Categorie</label></div>
+                <div class="col-6">
+                    <select id="categorie" name="categorie" required>
+                        <option value="veranda">Veranda</option>
+                        <option value="gsw">Glasschuifwand (GSW)</option>
+                        <option value="zonwering">Zonwering</option>
+                        <option value="overig">Overige</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row buttonRow">
+                <div class="col-3"><input class="but but-oker" type="reset" value="Herstellen"></div>
+                <div class="col-3"></div>
+                <div class="col-3"></div>
+
+                <div class="col-3"><input class="but but-oker" style="float: right;" type="submit" value="Toevoegen"></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/js/color.js"></script>
+<%- include("../partials/footer") -%>
