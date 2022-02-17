@@ -92,7 +92,7 @@ function roofData(roofs, roofID) {
             let elementSubmit = document.createElement("button");
             elementSubmit.classList.add("but-link");
             elementSubmit.setAttribute("type", "submit");
-            elementSubmit.setAttribute("onclick", "return confirm('Weet je zeker dat je de kleur " + element.kleurnummer + " wil verwijderen?');");
+            elementSubmit.setAttribute("onclick", "return confirm('Weet je zeker dat je daktype " + element.dakplaat + " wil verwijderen?');");
             elementSubmit.appendChild(document.createTextNode("VERWIJDEREN"));
             elementForm.appendChild(elementEdit);
             elementForm.appendChild(elementSubmit);
