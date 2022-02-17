@@ -4,7 +4,7 @@
         <div class="center">
             <% let data = JSON.stringify(foundRoofs) %>
             <% foundRoofs.forEach(roof => { %>
-                <div class="gallery" onclick="roofData('<%= data %>','<%= roof._id %>')">
+                <div class="gallery" onclick="roofData('<%= data %>','<%= roof._id %>')" style="cursor: pointer;">
                     <div class="row" id="<%= roof._id %>">
                         <%= roof.dakplaat %>
                     </div>

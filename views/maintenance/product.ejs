@@ -9,7 +9,7 @@
             <div id="panelVeranda">
                 <% if(veranda.length>=1) { %> 
                     <% for(let i = 0; i < veranda.length; i++) { %>
-                        <div class="gallery" onclick="Data('<%= data %>','<%= veranda[i]._id %>')">
+                        <div class="gallery" onclick="Data('<%= data %>','<%= veranda[i]._id %>')" style="cursor: pointer;">
                             <div class="row" id="<%= veranda[i]._id %>">
                                 <%= veranda[i].product %>
                             </div>
@@ -22,7 +22,7 @@
             <div id="panelGSW">
                 <% if(gsw.length>=1) { %> 
                     <% for(let i = 0; i < gsw.length; i++) { %>
-                        <div class="gallery" onclick="productData('<%= data %>','<%= gsw[i]._id %>')">
+                        <div class="gallery" onclick="productData('<%= data %>','<%= gsw[i]._id %>')" style="cursor: pointer;">
                             <div class="row" id="<%= gsw[i]._id %>">
                                 <%= gsw[i].product %>
                             </div>
@@ -35,7 +35,7 @@
             <div id="panelZonwering">
                 <% if(zonwering.length>=1) { %> 
                     <% for(let i = 0; i < zonwering.length; i++) { %>
-                        <div class="gallery" onclick="productData('<%= data %>','<%= zonwering[i]._id %>')">
+                        <div class="gallery" onclick="productData('<%= data %>','<%= zonwering[i]._id %>')" style="cursor: pointer;">
                             <div class="row" id="<%= zonwering[i]._id %>">
                                 <%= zonwering[i].product %>
                             </div>
@@ -48,7 +48,7 @@
             <div id="panelOverig">
                 <% if(overig.length>=1) { %> 
                     <% for(let i = 0; i < overig.length; i++) { %>
-                        <div class="gallery" onclick="productData('<%= data %>','<%= overig[i]._id %>')">
+                        <div class="gallery" onclick="productData('<%= data %>','<%= overig[i]._id %>')" style="cursor: pointer;">
                             <div class="row" id="<%= overig[i]._id %>">
                                 <%= overig[i].product %>
                             </div>
