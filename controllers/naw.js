@@ -18,7 +18,7 @@ exports.index = (req,res) => {
             } else {
                 res.render("./naw/index", {foundNAW: foundNAW, page: "nawIndex"});
             }
-        });
+        }).sort({ achternaam: 1});
     } else {
         NAW.find({}, (err, foundNAW) => {
             if(err) {
@@ -26,7 +26,7 @@ exports.index = (req,res) => {
             } else {
                 res.render("./naw/index", {foundNAW: foundNAW, page: "nawIndex"});
             };
-        });
+        }).sort({ achternaam: 1});
     }
 }
 
