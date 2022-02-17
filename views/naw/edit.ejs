@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-6"><label for="klantnummer">Klantnummer</label></div>
                     <div class="col-6">
-                        <input type="number" id="klantnummer" name="klantnummer" value="<%= foundNAW.klantnummer %>" disabled>
+                        <input type="number" id="klantnummer" name="klantnummer" value="<%= foundNAW.klantnummer %>" <%= typeof foundNAW.klantnummer !== 'undefined' && foundNAW.klantnummer !== null ? 'disabled' : '' %>>
                     </div>
                 </div>
                 <div class="row">
@@ -40,6 +40,13 @@
                         <input type="text" id="voornaam" name="update[voornaam]" value="<%= foundNAW.voornaam %>">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-6"><label for="geboortedatum">Geboortedatum</label></div>
+                    <div class="col-6">
+                        <input type="date" id="geboortedatum" name="geboortedatum" value="<%= typeof foundNAW.geboortedatum!=='undefined' ? moment(foundNAW.geboortedatum).format("YYYY-MM-DD") : '' %>">
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-6"><label for="adres">Adres</label></div>
                     <div class="col-6">
@@ -90,6 +97,11 @@
                     <div class="col-6">
                         <input type="email" id="email" name="update[email]" value="<%= foundNAW.email %>">
                     </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6"><label>Laatste bijwerkingen</label></div>
+                    <div class="col-6"><%= typeof foundNAW.laatstewijziging!=='undefined' ? moment(foundNAW.laatstewijziging).format("DD-MM-YYYY [om] HH:mm:ss") : moment(foundNAW.aanmaakdatum).format("DD-MM-YYYY") %></div>
                 </div>
                 
                 <div class="row">

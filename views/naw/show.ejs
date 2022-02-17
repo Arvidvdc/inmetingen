@@ -23,6 +23,10 @@
                 <div class="col-9"><%= foundNAW.adres %> <%= foundNAW.woonplaats %></div>
             </div>
             <div class="row">
+                <div class="col-3 hid">Geboortedatum: </div>
+                <div class="col-9"><%= typeof foundNAW.geboortedatum !== 'undefined' ? moment(foundNAW.geboortedatum).format("dddd D MMMM YYYY") : '' %></div>
+            </div>
+            <div class="row">
                 <div class="col-3 hid">Huistelefoon: </div>
                 <div class="col-9"><a href="tel:<%= foundNAW.huistelefoon %>"><%= foundNAW.huistelefoon %></a></div>
             </div>
@@ -37,6 +41,10 @@
             <div class="row">
                 <div class="col-3 hid">Email: </div>
                 <div class="col-9"><a href="mailto:<%= foundNAW.email %>"><%= foundNAW.email %></a></div>
+            </div>
+            <div class="row">
+                <div class="col-3">Laatste bijwerkingen:</div>
+                <div class="col-9"><%= typeof foundNAW.laatstewijziging!=='undefined' ? moment(foundNAW.laatstewijziging).format("DD-MM-YYYY [om] HH:mm:ss") : moment(foundNAW.aanmaakdatum).format("DD-MM-YYYY [om] HH:mm:ss") %></div>
             </div>
             <div class="row">
                 <div class="col-3 hid">Opmerkingen: </div>

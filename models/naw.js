@@ -16,6 +16,7 @@ const NAWSchema = new mongoose.Schema({
     mobiel02: String,
     mobiel02omschrijving: String,
     email: String,
+    geboortedatum: Date,
     omschrijving: String,
     aanmaakdatum: {
         type: Date,

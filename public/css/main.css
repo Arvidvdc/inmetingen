@@ -80,7 +80,7 @@ div.gallery:hover {
 }
 
 /* Forms */
-input[type=text], input[type=email], input[type=tel], input[type=number], input[type=checkbox], select, textarea {
+input[type=text], input[type=email], input[type=tel], input[type=number], input[type=checkbox], input[type=date], select, textarea {
     width: 95%;
     padding: 10px 5px;
     border: 1px solid #ffffff;
