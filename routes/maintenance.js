@@ -1,7 +1,8 @@
 // Require dependencies
 const   express                     = require("express"),
         router                      = express.Router(),
-        maintenance_controller      = require("../controllers/maintenance");
+        maintenance_controller      = require("../controllers/maintenance"),
+        middelware                  = require("../middleware/product");
 
 // Index route
 router.get("/", maintenance_controller.index);
@@ -46,7 +47,7 @@ router.delete("/dak/:id/destroy", maintenance_controller.rooftopDestroy);
 
 // ################ COLORS
 // Product index route
-router.get("/product", maintenance_controller.product);
+router.get("/product",middelware.products(), maintenance_controller.product);
 
 // Product add route
 router.get("/product/new", maintenance_controller.productNew);

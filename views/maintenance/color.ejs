@@ -4,7 +4,7 @@
         <div class="center">
             <% let data = JSON.stringify(foundColors) %>
             <% foundColors.forEach(color => { %>
-                <div class="gallery" onclick="colorData('<%= data %>','<%= color._id %>')">
+                <div class="gallery" onclick="colorData('<%= data %>','<%= color._id %>')" style="cursor: pointer;">
                     <div class="row" id="<%= color._id %>">
                         <%= color.kleurnummer %>
                         <%= color.kleuromschrijving %>

@@ -16,17 +16,17 @@ function changeCheckboxes(e) {
 }
 
 // Show all color data - page COLOR
-function productData(products, productID) {
+function Data(products, productID) {
     // Coverting data-string to object
     let obj = JSON.parse(products);
 
     obj.forEach(element => {
         if(element._id == productID) {
             // Define element on page
-            let productData = document.getElementById("productData");
+            let Data = document.getElementById("Data");
             // removing old childs
-            while (productData.firstChild) {
-                productData.firstChild.remove()
+            while (Data.firstChild) {
+                Data.firstChild.remove()
             }
             // Creating element CENTER
             let elementCenter = document.createElement("div");
@@ -64,11 +64,43 @@ function productData(products, productID) {
             elementGallery.appendChild(elementRow);
             elementCenter.appendChild(elementGallery);
             elementCenter.appendChild(elementSpan);
-            productData.appendChild(elementCenter);
+            Data.appendChild(elementCenter);
         }
     });
+}
 
+function showVeranda() {
+    document.getElementById("panelVeranda").style.display = "block";
+    document.getElementById("panelVeranda").style.marginTop = "-10px";
+    document.getElementById("panelGSW").style.display = "none";
+    document.getElementById("panelZonwering").style.display = "none";
+    document.getElementById("panelOverig").style.display = "none";
+    document.getElementById("Data").innerHTML = "";
+}
 
-    
-    
+function showGSW() {
+    document.getElementById("panelVeranda").style.display = "none";
+    document.getElementById("panelGSW").style.display = "block";
+    document.getElementById("panelGSW").style.marginTop = "-10px";
+    document.getElementById("panelZonwering").style.display = "none";
+    document.getElementById("panelOverig").style.display = "none";
+    document.getElementById("Data").innerHTML = "";
+}
+
+function showZonwering() {
+    document.getElementById("panelVeranda").style.display = "none";
+    document.getElementById("panelGSW").style.display = "none";
+    document.getElementById("panelZonwering").style.display = "block";
+    document.getElementById("panelZonwering").style.marginTop = "-10px";
+    document.getElementById("panelOverig").style.display = "none";
+    document.getElementById("Data").innerHTML = "";
+}
+
+function showOverig() {
+    document.getElementById("panelVeranda").style.display = "none";
+    document.getElementById("panelGSW").style.display = "none";
+    document.getElementById("panelZonwering").style.display = "none";
+    document.getElementById("panelOverig").style.display = "block";
+    document.getElementById("panelOverig").style.marginTop = "-10px";
+    document.getElementById("Data").innerHTML = "";
 }
