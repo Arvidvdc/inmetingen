@@ -1,6 +1,7 @@
 // Required dependencies
-const COLOR   = require("../models/color");
-const ROOF   = require("../models/rooftop");
+const   COLOR   = require("../models/color"),
+        ROOF    = require("../models/rooftop"),
+        PRODUCT = require("../models/product");
 
 // Index controller
 exports.index = (req,res) => {
@@ -243,6 +244,78 @@ exports.rooftopDestroy = (req,res) => {
             res.redirect("back");
         } else {
             res.redirect("/maintenance/dak/");    
+        }
+    });
+}
+
+// ################ PRODUCTS
+// Product index controller
+exports.product = (req,res) => {
+    PRODUCT.find({}, (err, foundProducts) => {
+        if(err) {
+            console.log("PRODUCTINDEX - Something went wrong");
+            res.send("Er is een foutmelding ontstaan. Raadpleeg de beheerder.")
+        } else {
+            res.render("./maintenance/product", {foundProducts: foundProducts, page: "productIndex"});
+        }
+    });
+}
+
+// Product new controller
+exports.productNew = (req, res) => {
+    res.render("./maintenance/productNew", {page: "productNew"});
+}
+
+// Product create controler
+exports.productAdd = (req,res) => {
+    let product     = req.body.product,
+        categorie   = req.body.categorie;
+
+    let newProduct = {product: product, categorie: categorie};
+    PRODUCT.create(newProduct, (err,product) => {
+        if(err){
+            console.log("Create product: Something went wrong. \n" + err);
+            res.redirect("back");
+        } else {
+            res.redirect("/maintenance/product");
+        };
+    });
+}
+
+// Product edit controller
+exports.productEdit = (req,res) => {
+    PRODUCT.findById(req.params.id, (err,foundProduct) => {
+        if(err) {
+            redirect("back");
+        } else {
+            res.render("./maintenance/productEdit", {page: "productEdit", foundProduct: foundProduct});
+        }
+    });
+}
+
+// Product update controler
+exports.productUpdate = (req,res) => {
+    let product     = req.body.product,
+        categorie   = req.body.categorie;
+
+    let updateProduct = {product: product, categorie: categorie};
+    PRODUCT.findByIdAndUpdate(req.params.id, updateProduct, (err) => {
+        if(err) {
+            console.log("Error updating Product" + err);
+        } else {
+            res.redirect("/maintenance/product");
+        }
+    });   
+}
+
+// Product destroy controller
+exports.productDestroy = (req,res) => {
+    PRODUCT.findByIdAndDelete(req.params.id, (err) => {
+        if(err) {
+            console.log("Error deleting record:" + req.params.id);
+            res.redirect("back");
+        } else {
+            res.redirect("/maintenance/product/");
         }
     });
 }

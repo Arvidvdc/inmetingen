@@ -44,5 +44,24 @@ router.put("/dak/:id", maintenance_controller.rooftopUpdate);
 // Rooftop destroy route
 router.delete("/dak/:id/destroy", maintenance_controller.rooftopDestroy);
 
+// ################ COLORS
+// Product index route
+router.get("/product", maintenance_controller.product);
+
+// Product add route
+router.get("/product/new", maintenance_controller.productNew);
+
+// Product create route
+router.post("/product/new", maintenance_controller.productAdd);
+
+// Product edit route
+router.get("/product/:id/edit", maintenance_controller.productEdit);
+
+// Product update route
+router.put("/product/:id", maintenance_controller.productUpdate);
+
+// Product destroy route
+router.delete("/product/:id/destroy", maintenance_controller.productDestroy);
+
 // Export router
 module.exports = router;
