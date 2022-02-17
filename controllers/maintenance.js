@@ -18,7 +18,7 @@ exports.color = (req,res) => {
         } else {
             res.render("./maintenance/color", {foundColors: foundColors, page: "colorsIndex"});
         }
-    });
+    }).sort({ kleurnummer: 1});
 }
 
 // Color new controller
@@ -162,7 +162,7 @@ exports.rooftop = (req,res) => {
         } else {
             res.render("./maintenance/rooftop", {foundRoofs: foundRoofs, page: "roofIndex"});
         }
-    });
+    }).sort({ dakplaat: 1});
 }
 
 // Rooftop new controller
