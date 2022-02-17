@@ -211,6 +211,17 @@ label {
     border: solid 1px #516c83;
 }
 
+.index {
+    columns: auto 1;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.index .gallery {
+    box-shadow: none;
+    text-align: center;
+    cursor: pointer;
+    margin: auto;
+}
 /* for mobile */
 [class*="col-"] {
     width: 100%;
@@ -312,6 +323,11 @@ label {
     .col-2 label {
         padding: 8px 0px;
     }
+
+    .index {
+        columns: auto 4;
+    }
+    
 }
 
 .clearfix:after, .row::after {
