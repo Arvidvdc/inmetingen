@@ -196,7 +196,8 @@ label {
     background-color: #006400;
     color: white;
     border: solid 1px #516c83;
-    margin: auto;
+    /* margin: auto; */
+    margin-bottom: 10px;
     cursor: pointer;
 }
 
