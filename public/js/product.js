@@ -66,6 +66,7 @@ function Data(products, productID) {
             elementCenter.appendChild(elementSpan);
             Data.appendChild(elementCenter);
         }
+        window.location.href = "#data";
     });
 }
 
