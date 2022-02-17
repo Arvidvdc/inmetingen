@@ -6,6 +6,7 @@ const   express                     = require("express"),
 // Index route
 router.get("/", maintenance_controller.index);
 
+// ################ COLORS
 // Color index route
 router.get("/kleuren", maintenance_controller.color);
 
@@ -24,6 +25,7 @@ router.put("/kleuren/:id", maintenance_controller.colorUpdate);
 // Color destroy route
 router.delete("/kleuren/:id/destroy", maintenance_controller.colorDestroy);
 
+// ################ ROOFTOPS
 // Rooftop index route
 router.get("/dak", maintenance_controller.rooftop);
 
@@ -32,6 +34,15 @@ router.get("/dak/new", maintenance_controller.rooftopNew);
 
 // Rooftop create route
 router.post("/dak/new", maintenance_controller.rooftopAdd);
+
+// Rooftop edit route
+router.get("/dak/:id/edit", maintenance_controller.rooftopEdit);
+
+// Rooftop update route
+router.put("/dak/:id", maintenance_controller.rooftopUpdate);
+
+// Rooftop destroy route
+router.delete("/dak/:id/destroy", maintenance_controller.rooftopDestroy);
 
 // Export router
 module.exports = router;

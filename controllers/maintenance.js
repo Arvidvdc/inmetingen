@@ -7,6 +7,7 @@ exports.index = (req,res) => {
     res.render("./maintenance/index", {page: "maintenanceIndex"});
 }
 
+// ################ COLORS
 // Color index controller
 exports.color = (req,res) => {
     COLOR.find({}, (err, foundColors) => {
@@ -146,6 +147,7 @@ exports.colorDestroy = (req,res) => {
     });
 }
 
+// ################ ROOFTOPS
 // Rooftop index controller
 exports.rooftop = (req,res) => {
     ROOF.find({}, (err, foundRoofs) => {
@@ -190,5 +192,57 @@ exports.rooftopAdd = (req,res) => {
         } else {
             res.redirect("/maintenance/dak");
         };
+    });
+}
+
+// Rooftop edit controller
+exports.rooftopEdit = (req,res) => {
+    ROOF.findById(req.params.id, (err,foundRoofs) => {
+        if(err) {
+            redirect("back");
+        } else {
+            res.render("./maintenance/rooftopEdit", {page: "roofEdit", foundRoof: foundRoofs});
+        }
+    });
+}
+
+// Rooftop update controler
+exports.rooftopUpdate = (req,res) => {
+    let dakplaat                = req.body.dakplaat,
+        dakplaatomschrijving    = req.body.omschrijving;
+
+    let designline          = false,
+        ecoline             = false,
+        luxline             = false,
+        topline             = false,
+        trendline           = false,
+        ultraline           = false;
+
+    if(req.body.designline == "on") {designline = true;}
+    if(req.body.ecoline == "on") {ecoline = true;}
+    if(req.body.luxline == "on") {luxline = true;}
+    if(req.body.topline == "on") {topline = true;}
+    if(req.body.trendline == "on") {trendline = true;}
+    if(req.body.ultraline == "on") {ultraline = true;}
+
+    let updateROOF = {dakplaat: dakplaat, dakplaatomschrijving: dakplaatomschrijving, designline: designline, ecoline: ecoline, luxline: luxline, topline: topline, trendline: trendline, ultraline: ultraline};
+    ROOF.findByIdAndUpdate(req.params.id, updateROOF, (err) => {
+        if(err) {
+            console.log("Error updating Roof" + err);
+        } else {
+            res.redirect("/maintenance/dak");
+        }
+    });
+}
+
+// Rooftop destroy controller
+exports.rooftopDestroy = (req,res) => {
+    ROOF.findByIdAndDelete(req.params.id, (err) => {
+        if(err) {
+            console.log("Error deleting record:" + req.params.id);
+            res.redirect("back");
+        } else {
+            res.redirect("/maintenance/dak/");    
+        }
     });
 }
