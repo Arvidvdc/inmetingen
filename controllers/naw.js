@@ -48,8 +48,10 @@ exports.new_post = (req,res) => {
         mobiel02omschrijving    = req.body.mobiel02omschrijving,
         email                   = req.body.email,
         omschrijving            = req.body.omschrijving,
-        geboortedatum           = req.body.geboortedatum,
-        newNAW                  = {klantnummer: klantnummer, aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01omschrijving: mobiel01omschrijving, mobiel02: mobiel02, mobiel02omschrijving: mobiel02omschrijving, email: email, geboortedatum: geboortedatum, omschrijving: omschrijving};
+        newNAW                  = {klantnummer: klantnummer, aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01omschrijving: mobiel01omschrijving, mobiel02: mobiel02, mobiel02omschrijving: mobiel02omschrijving, email: email, omschrijving: omschrijving};
+    if(req.body.geboortedatum!=="") {
+        newNAW               = {klantnummer: klantnummer, aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01omschrijving: mobiel01omschrijving, mobiel02: mobiel02, mobiel02omschrijving: mobiel02omschrijving, email: email, omschrijving: omschrijving, geboortedatum: req.body.geboortedatum};
+    }
     NAW.create(newNAW, (err,naw) => {
         if(err){
             console.log("Create NAW: Something went wrong. \n" + err);
@@ -87,7 +89,7 @@ exports.edit = (req, res) => {
 }
 
 exports.update = (req,res) => {
-    let klantnummer             = req.body.update.klantnummer,
+    let klantnummer             = req.body.klantnummer,
         aanhef                  = req.body.update.aanhef,
         achternaam              = req.body.update.achternaam,
         tussenvoegsels          = req.body.update.tussenvoegsels,
@@ -102,9 +104,11 @@ exports.update = (req,res) => {
         mobiel02omschrijving    = req.body.update.mobiel02omschrijving,
         email                   = req.body.update.email,
         omschrijving            = req.body.update.omschrijving,
-        geboortedatum           = req.body.geboortedatum,
-        laatstewijziging        = Date.now(),
-        updateNAW               = {klantnummer: klantnummer, aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01omschrijving: mobiel01omschrijving, mobiel02: mobiel02, mobiel02omschrijving: mobiel02omschrijving, email: email, omschrijving: omschrijving, geboortedatum: geboortedatum, laatstewijziging: laatstewijziging};
+        laatstewijziging        = Date.now();
+    let updateNAW               = {klantnummer: klantnummer, aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01omschrijving: mobiel01omschrijving, mobiel02: mobiel02, mobiel02omschrijving: mobiel02omschrijving, email: email, omschrijving: omschrijving, laatstewijziging: laatstewijziging};
+    if(req.body.geboortedatum!=="") {
+        updateNAW               = {klantnummer: klantnummer, aanhef: aanhef, achternaam: achternaam, tussenvoegsels: tussenvoegsels, voornaam: voornaam, adres: adres, postcode: postcode, woonplaats: woonplaats, huistelefoon: huistelefoon, mobiel01: mobiel01, mobiel01omschrijving: mobiel01omschrijving, mobiel02: mobiel02, mobiel02omschrijving: mobiel02omschrijving, email: email, omschrijving: omschrijving, geboortedatum: req.body.geboortedatum, laatstewijziging: laatstewijziging};
+    }
 
     NAW.findByIdAndUpdate(req.params.id, updateNAW, (err) => {
         if(err) {
@@ -123,6 +127,17 @@ exports.destroy = (req,res) => {
             res.redirect("back");
         } else {
             res.redirect("/naw/");    
+        }
+    });
+}
+
+// NAW delete Date of Birth
+exports.dob = (req,res) => {
+    NAW.updateOne({_id: req.params.id}, {$unset: {geboortedatum: 1}}, (err) => {
+        if(err) {
+            console.log("Error updating Date of Birth: " + err);
+        } else {
+            res.redirect("/naw/" + req.params.id);
         }
     });
 }

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="center">
         <div class="row">
-            <h3>Klantnummer <%= foundNAW.klantnummer %>
+            <h3><%= typeof foundNAW.klantnummer!=='undefined' && foundNAW.klantnummer<=0 ? foundNAW.achternaam : foundNAW.klantnummer %>
                 <span class="subtext">
                     <form action="/naw/<%= foundNAW._id %>/destroy?_method=DELETE" method="POST">
                         <a style="color: #ddba3f; text-decoration: none;" href="/naw/<%= foundNAW._id %>/edit">BEWERKEN</a> | 
@@ -20,11 +20,19 @@
             </div>
             <div class="row">
                 <div class="col-3 hid">Adres: </div>
-                <div class="col-9"><%= foundNAW.adres %> <%= foundNAW.woonplaats %></div>
+                <div class="col-9"><%= foundNAW.adres %></div>
+            </div>
+            <div class="row">
+                <div class="col-3 hid"></div>
+                <div class="col-9"><%= foundNAW.postcode %> <%= foundNAW.woonplaats %></div>
             </div>
             <div class="row">
                 <div class="col-3 hid">Geboortedatum: </div>
-                <div class="col-9"><%= typeof foundNAW.geboortedatum !== 'undefined' ? moment(foundNAW.geboortedatum).format("dddd D MMMM YYYY") : '' %></div>
+                <div class="col-9">
+                    <% if(typeof foundNAW.geboortedatum !== "undefined") { %> 
+                        <%= moment(foundNAW.geboortedatum).format("dddd D MMMM YYYY") %> <span style="text-transform: uppercase; font-size: small;"> - <a href="/naw/<%= foundNAW._id %>/dob">wissen</a> </span>
+                    <% } %> 
+                </div>
             </div>
             <div class="row">
                 <div class="col-3 hid">Huistelefoon: </div>
@@ -43,12 +51,11 @@
                 <div class="col-9"><a href="mailto:<%= foundNAW.email %>"><%= foundNAW.email %></a></div>
             </div>
             <div class="row">
-                <div class="col-3">Laatste bijwerkingen:</div>
-                <div class="col-9"><%= typeof foundNAW.laatstewijziging!=='undefined' ? moment(foundNAW.laatstewijziging).format("DD-MM-YYYY [om] HH:mm:ss") : moment(foundNAW.aanmaakdatum).format("DD-MM-YYYY [om] HH:mm:ss") %></div>
-            </div>
-            <div class="row">
                 <div class="col-3 hid">Opmerkingen: </div>
                 <div class="col-9"><%= foundNAW.omschrijving %></div>
+            </div>
+            <div class="row">
+                <div class="col-12"><span class="subtext">Laatste bijwerkingen: <%= typeof foundNAW.laatstewijziging!=='undefined' ? moment(foundNAW.laatstewijziging).format("DD-MM-YYYY [om] HH:mm:ss") : moment(foundNAW.aanmaakdatum).format("DD-MM-YYYY [om] HH:mm:ss") %></span></div>
             </div>
             <div class="row buttonRow">
                 <div class="col-3"><a style="width: 90%; padding: 5px" href="#" class="but but-oker">TODO LIST</a></div>

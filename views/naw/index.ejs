@@ -15,7 +15,7 @@
                 </div>
                 <% foundNAW.forEach(name => { %>
                     <div class="row">
-                        <a href="/naw/<%= name._id %>"><%= typeof name.klantnummer !== 'undefined' && name.klantnummer !== null ? name.klantnummer + ' - ' : '' %><%= typeof name.achternaam !== 'undefined' ? name.achternaam : '' %><%= typeof name.woonplaats !== 'undefined' && name.woonplaats.length >= 1 ? ' - ' + name.woonplaats : '' %></a>
+                        <a href="/naw/<%= name._id %>"><%= typeof name.achternaam !== 'undefined' ? name.achternaam : '' %><%= typeof name.woonplaats !== 'undefined' && name.woonplaats.length >= 1 ? ' - ' + name.woonplaats : '' %></a>
                     </div>
                 <% }); %>
             </div>
