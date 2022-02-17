@@ -1,24 +1,68 @@
 <%- include("../partials/header") -%>
+<script src="/js/product.js"></script>
+    <% let data = JSON.stringify(results) %>
 
     <div class="col-3">
         <div class="center">
-            <% let data = JSON.stringify(foundProducts) %>
-            <% foundProducts.forEach(product => { %>
-                <div class="gallery" onclick="productData('<%= data %>','<%= product._id %>')">
-                    <div class="row" id="<%= product._id %>">
-                        <%= product.product %>
-                    </div>
-                </div>
-            <% }); %> 
-            <div class="gallery" style="text-align: center;" onclick="javascript:location.href='/maintenance/product/new'">
+
+            <div class="flip" onclick="showVeranda()">Veranda's (<%= veranda.length %>)</div>
+            <div id="panelVeranda">
+                <% if(veranda.length>=1) { %> 
+                    <% for(let i = 0; i < veranda.length; i++) { %>
+                        <div class="gallery" onclick="Data('<%= data %>','<%= veranda[i]._id %>')">
+                            <div class="row" id="<%= veranda[i]._id %>">
+                                <%= veranda[i].product %>
+                            </div>
+                        </div>
+                    <% } %> 
+                <% } %> 
+            </div>
+
+            <div class="flip" onclick="showGSW()">Glasschuifwand (<%= gsw.length %>)</div>
+            <div id="panelGSW">
+                <% if(gsw.length>=1) { %> 
+                    <% for(let i = 0; i < gsw.length; i++) { %>
+                        <div class="gallery" onclick="productData('<%= data %>','<%= gsw[i]._id %>')">
+                            <div class="row" id="<%= gsw[i]._id %>">
+                                <%= gsw[i].product %>
+                            </div>
+                        </div>
+                    <% } %> 
+                <% } %> 
+            </div>
+
+            <div class="flip" onclick="showZonwering()">Zonwering (<%= zonwering.length %>)</div>
+            <div id="panelZonwering">
+                <% if(zonwering.length>=1) { %> 
+                    <% for(let i = 0; i < zonwering.length; i++) { %>
+                        <div class="gallery" onclick="productData('<%= data %>','<%= zonwering[i]._id %>')">
+                            <div class="row" id="<%= zonwering[i]._id %>">
+                                <%= zonwering[i].product %>
+                            </div>
+                        </div>
+                    <% } %> 
+                <% } %> 
+            </div>
+
+            <div class="flip" onclick="showOverig()">Overig (<%= overig.length %>)</div>
+            <div id="panelOverig">
+                <% if(overig.length>=1) { %> 
+                    <% for(let i = 0; i < overig.length; i++) { %>
+                        <div class="gallery" onclick="productData('<%= data %>','<%= overig[i]._id %>')">
+                            <div class="row" id="<%= overig[i]._id %>">
+                                <%= overig[i].product %>
+                            </div>
+                        </div>
+                    <% } %> 
+                <% } %> 
+            </div>
+
+            <div class="gallery" style="text-align: center; margin-top: 10px;" onclick="javascript:location.href='/maintenance/product/new'">
                 NIEUW PRODUCT
             </div>
         </div>
     </div>
 
-    <div class="col-9" id="productData">
-
-    </div>
+    <div class="col-9" id="Data"></div>
     
-<script src="/js/product.js"></script>
 <%- include("../partials/footer") -%>

@@ -3,6 +3,8 @@ const   COLOR   = require("../models/color"),
         ROOF    = require("../models/rooftop"),
         PRODUCT = require("../models/product");
 
+const   SARgEModule = require("../SARgEModules/SARgEmodules");
+
 // Index controller
 exports.index = (req,res) => {
     res.render("./maintenance/index", {page: "maintenanceIndex"});
@@ -255,14 +257,12 @@ exports.rooftopDestroy = (req,res) => {
 // ################ PRODUCTS
 // Product index controller
 exports.product = (req,res) => {
-    PRODUCT.find({}, (err, foundProducts) => {
-        if(err) {
-            console.log("PRODUCTINDEX - Something went wrong");
-            res.send("Er is een foutmelding ontstaan. Raadpleeg de beheerder.")
-        } else {
-            res.render("./maintenance/product", {foundProducts: foundProducts, page: "productIndex"});
-        }
-    });
+    let veranda    = SARgEModule.sortType(res.results,"veranda"),
+        gsw         = SARgEModule.sortType(res.results,"gsw"),
+        zonwering   = SARgEModule.sortType(res.results,"zonwering"),
+        overig      = SARgEModule.sortType(res.results,"overig");
+
+    res.render("./maintenance/product", {veranda: veranda, gsw: gsw, zonwering: zonwering, overig: overig, results: res.results, page: "productIndex"});
 }
 
 // Product new controller
