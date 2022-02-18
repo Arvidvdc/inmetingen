@@ -1,0 +1,24 @@
+<%- include("../partials/header") -%>
+
+    <div class="col-3">
+        <div class="center">
+            <% let data = JSON.stringify(foundDownloads) %>
+            <% foundDownloads.forEach(download => { %>
+                <div class="gallery" onclick="Data('<%= data %>','<%= download._id %>')" style="cursor: pointer;">
+                    <div class="row" id="<%= download._id %>">
+                        <%= download.filename %>
+                        <%= download.description %>
+                    </div>
+                </div>
+            <% }); %> 
+        </div>
+
+        <div class="gallery" style="text-align: center;" onclick="javascript:location.href='/info/download/new'">
+            UPLOAD FILE
+        </div>
+    </div>
+
+    <div class="col-9" id="Data"></div>
+
+<script src="/js/downloads.js"></script>
+<%- include("../partials/footer") -%>
