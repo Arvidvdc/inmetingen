@@ -16,7 +16,7 @@ exports.index = (req,res) => {
             if(err) {
                 console.log("You FUCKED it UP");
             } else {
-                res.render("./naw/index", {foundNAW: foundNAW, page: "nawIndex"});
+                res.render("./naw/index", {foundNAW: foundNAW, numberNAW: foundNAW.length, page: "nawIndex"});
             }
         }).sort({ achternaam: 1});
     } else {

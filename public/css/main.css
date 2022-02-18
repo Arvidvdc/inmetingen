@@ -218,17 +218,20 @@ label {
     border: solid 1px #516c83;
 }
 
-.index {
+.index, .indexNAW {
     columns: auto 1;
     margin-bottom: 10px;
     padding: 5px;
 }
-.index .gallery {
+
+.index .gallery, .indexNAW .gallery {
     box-shadow: none;
     text-align: center;
     cursor: pointer;
-    margin: auto;
+    margin: 0px;
+    min-width: 179px;
 }
+
 /* for mobile */
 [class*="col-"] {
     width: 100%;
@@ -340,6 +343,14 @@ label {
 
     .index {
         columns: auto 4;
+    }
+    
+    .indexNAW {
+        columns: auto 3;
+    }
+
+    .solo {
+        columns: auto 1;
     }
     
     .nawRow1 {

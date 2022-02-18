@@ -18,16 +18,14 @@
                     </form>
                 </div>
             </div>
-            <div class="row">
-                <div class="gallery">
-                    <div class="row" style="text-align: center;">
-                    </div>
-                    <% foundNAW.forEach(name => { %>
+            <div class="indexNAW <%= foundNAW.length==1 ? 'solo' : '' %>">
+                <% foundNAW.forEach(name => { %>
+                    <div class="gallery" onclick="javascript:location.href='/naw/<%= name._id %>'">
                         <div class="row">
-                            <a href="/naw/<%= name._id %>"><%= typeof name.achternaam !== 'undefined' ? name.achternaam : '' %><%= typeof name.woonplaats !== 'undefined' && name.woonplaats.length >= 1 ? ' - ' + name.woonplaats : '' %></a>
+                            <%= typeof name.achternaam !== 'undefined' ? name.achternaam : '' %><%= typeof name.woonplaats !== 'undefined' && name.woonplaats.length >= 1 ? ' - ' + name.woonplaats : '' %>
                         </div>
-                    <% }); %>
-                </div>
+                    </div>
+                <% }); %>
             </div>
         </div>
     </div>
